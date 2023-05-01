@@ -1,0 +1,105 @@
+<nb-card>
+  <nb-card-header>recherche un contrat</nb-card-header>
+
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+
+
+        <!-- <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            </div>
+          </div> -->
+        <!-- <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            </div>
+          </div> -->
+
+
+
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">prénom</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">situation </label>
+          </div>
+          <div class="col-sm-9">
+            <nb-select fullWidth selected="1">
+              <nb-option value="1">Option 1</nb-option>
+              <nb-option value="2">Option 2</nb-option>
+            </nb-select>
+          </div>
+        </div>
+
+        <nb-checkbox status="success">vip</nb-checkbox>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">matricule</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-3">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">matricule</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-3">
+
+            <label for="inputEmail1" class="label col-sm-3col-form-label">numero d'adhésion</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+          </div>
+        </div>
+        <nb-checkbox status="warning">couple</nb-checkbox>
+      </div>
+    </div>
+
+
+
+    <div class="buttons-row">
+      <button nbButton status="warning" hero>recherche </button>
+      <button nbButton status="warning" [routerLink]="['/pages/legend-chart']" hero>ajouter </button>
+    </div>
+
+  </nb-card-body>
+
+</nb-card>
