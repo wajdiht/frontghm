@@ -62,6 +62,7 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
 import { TablesRoutingModule } from '../tables/tables-routing.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 @NgModule({
   imports: [
@@ -85,6 +86,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NbStepperModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxUploaderModule,
 
 
   ],

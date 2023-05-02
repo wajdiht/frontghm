@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MySoapService } from '../../../my-soap-service.service';
+import { PersonService } from '../../../person.service';
 
 
 @Component({
@@ -16,10 +18,30 @@ export class ECommerceLegendChartComponent implements OnInit {
   fourthForm: FormGroup;
   fifthForm: FormGroup;
   ajouter=false;
-  constructor(private fb: FormBuilder,private router: Router ) {
+  SoapData: any;
+  person: any;
+
+  constructor(private fb: FormBuilder,private router: Router,private serv: MySoapService ,private personService: PersonService) {
+  }
+
+  
+  getPerson(): void {
+    this.personService.getPerson('PP-1')
+      .subscribe(response => {
+        // Extract the data from the SOAP response
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(response, 'text/xml');
+        const firstName = xmlDoc.getElementsByTagName('firstName')[0].childNodes[0].nodeValue;
+        const lastName = xmlDoc.getElementsByTagName('lastName')[0].childNodes[0].nodeValue;
+        const cityOfBirth = xmlDoc.getElementsByTagName('cityOfBirth')[0].childNodes[0].nodeValue;
+
+        // Set the person object with the extracted data
+        this.person = { firstName, lastName, cityOfBirth };
+      });
   }
 
   ngOnInit() {
+
     this.firstForm = this.fb.group({
       firstCtrl: ['', Validators.required],
     });
@@ -59,5 +81,5 @@ export class ECommerceLegendChartComponent implements OnInit {
     onfifthSubmit() {
     this.fifthForm.markAsDirty();
   }
- 
+
 }

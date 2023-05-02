@@ -16,3 +16,4 @@ export class PagesComponent {
 
   menu = MENU_ITEMS;
 }
+
