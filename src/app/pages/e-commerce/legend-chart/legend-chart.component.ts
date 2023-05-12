@@ -2,10 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MySoapService } from '../../../my-soap-service.service';
 import { PersonService } from '../../../person.service';
-
-
+import { Console } from 'console';
 @Component({
   selector: 'ngx-legend-chart',
   styleUrls: ['./legend-chart.component.scss'],
@@ -19,27 +17,168 @@ export class ECommerceLegendChartComponent implements OnInit {
   fifthForm: FormGroup;
   ajouter=false;
   SoapData: any;
-  person: any;
+  id:string;
+  person: any = [];
+  beneficiary:any[];
+  rib: any =[]
+  selectedFile: File;
+  fullName:any;
+  BeneficiaryId=localStorage.getItem('BeneficiaryId');
+  MemberId = localStorage.getItem('MemberId');
+  personId = localStorage.getItem('personId')
+  ContractId=localStorage.getItem('ContractId')
+  SocialSecurityDataId = localStorage.getItem('SocialSecurityDataId')
+  Beneficiary:any={"quality": "" ,"nomAdherent": "","plafond": "","situationAdhesion": "","dateAdhesion": "" ,"numeroAdhesion": "","dateDebutPrestation": "","datePosition": "","dateFinPrestation": "","nomEtPrenom": ""}
+  contact: any ={"registrationNumber": "" ,"contractSituation": "","contractSituationDate": ""};
+  APCI:any={ "dateAPCI": "", "apciEnumType": "","startDate": "", "endDate": "","expiryDate": "", "name": ""}
+  Comment:any={ "comment": "", "type": ""}
+  PricingData:any={ "pricingCode": "", "serviceCode": ""}
+  SocialSecurityData:any={"cnrpsRegistrationNumber": "" ,"cnssRegistrationNumber": "","cnamRegistrationNumber": "","sector": "","isAPCI": "" ,"isChronicDisease": ""}
+  ProfessionalInfo :any ={"position": "" ,"salary": "","classe": "","echelon": "","positionDate": "" ,"college": "","membershipStatus": "","contributionStartDate": "","contributionEndDate": "","refundType": "" ,"category": ""}
+  Member :any ={ "membershipCodeNumber": "", "membershipDate": "", "membershipExpiryDate": "","parentCompany": "", "subscriptionDate": "", "mainContact":"" ,"patterns": "", "isVIP": "", "isCouple":"" }
+  personSave: any ={"personType": "" ,"policyNumber": "","firstName": "","lastName": "","nationality": ""};
+  Contract:any={"registrationNumber": "","contractSituation": "","contractSituationDate": ""};
+  constructor(private fb: FormBuilder,private router: Router,private personService: PersonService) {
+  }
+ 
 
-  constructor(private fb: FormBuilder,private router: Router,private serv: MySoapService ,private personService: PersonService) {
+  onFileSelected(event): void {
+    this.selectedFile = event.target.files[0];
+  }
+  /*addContract() {
+     console.log(this.id , this.Member)
+        this.getPerson();
+        this.getContacts();
+        this.getRib();
+        this.addingContract(memberId)
+        console.log("contractid-localstore=",this.ContractId);
+        //this.personService.addPricingDataByContract(this.ContractId, this.PricingData);
+        this.addCommentByCOntract(this.ContractId);
+        localStorage.removeItem('ContractId')        
+        //window.location.reload();
+  }); 
+  } */
+  addMember(){
+    this.personService.addMember(this.id,this.Member).subscribe((memberId) => {
+      localStorage.setItem('MemberId', memberId);
+      this.MemberId=memberId
+      console.log("memberID",memberId);
+      this.getPerson();
+      this.getContacts();
+      this.getRib();
+    });
   }
 
-  
-  getPerson(): void {
-    this.personService.getPerson('PP-1')
-      .subscribe(response => {
-        // Extract the data from the SOAP response
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(response, 'text/xml');
-        const firstName = xmlDoc.getElementsByTagName('firstName')[0].childNodes[0].nodeValue;
-        const lastName = xmlDoc.getElementsByTagName('lastName')[0].childNodes[0].nodeValue;
-        const cityOfBirth = xmlDoc.getElementsByTagName('cityOfBirth')[0].childNodes[0].nodeValue;
-
-        // Set the person object with the extracted data
-        this.person = { firstName, lastName, cityOfBirth };
+  addContract(){
+    this.personService.addContract(this.MemberId, this.Contract).subscribe((contractId)=>{
+      console.log("memberid",this.MemberId)
+      console.log(contractId)
+      this.personService.addPricingDataByContract(contractId, this.PricingData).subscribe({
+        next: (data: any) => {},
+        error: (err:any) => {console.log(err, 'error pricing data') },
+        complete: () => { console.log('success')}
       });
+
+      this.personService.addCommentByContract(contractId,this.Comment).subscribe({
+        next: (data: any) => {},
+        error: (err:any) => {console.log(err, ' error comment') },
+        complete: () => { console.log('success')}
+      }
+    );
+    this.ContractId=contractId
+    localStorage.setItem('ContractId',contractId)  
+  });
   }
 
+  addprofessionalinfo() {
+    console.log("fi wost EL professionlinfo",this.ContractId)
+      this.personService.addprofessionalinfo(this.ContractId,this.ProfessionalInfo).subscribe({
+        next: (data: any) => {},
+        error: (err:any) => {console.log(err) },
+        complete: () => { console.log('success')}
+      });
+      
+  } 
+  AddBeneficiary() {
+    console.log("fi wost EL Beneficiary",this.ContractId)
+      this.personService.AddBeneficiary(this.ContractId,this.id,this.Beneficiary).subscribe((BeneficiaryId)=>{
+        console.log("BeneficiaryId",this.BeneficiaryId)  
+        this.personService.AddSocialSecurityDataByBeneficiary(BeneficiaryId, this.SocialSecurityData).subscribe({
+          next: (data: any) => {},
+          error: (err:any) => {console.log(err, 'error pricing data') },
+          complete: () => { console.log('success')}
+        });
+      });
+  } 
+
+  removeContractId(){
+    localStorage.removeItem('ContractId')
+    window.location.reload
+  }
+  addSocialSecurityData() {
+    console.log(this.MemberId , this.SocialSecurityData)
+      this.personService.addSocialSecurityData(this.MemberId,this.SocialSecurityData).subscribe((data) => {
+        localStorage.setItem('SocialSecurityDataId', data)
+        if(this.SocialSecurityData.isAPCI){
+          console.log("ssd id",data)
+          this.personService.addAPCIBySocialSecurityData(data, this.APCI).subscribe(
+          {
+            next: (data: any) => {},
+            error: (err:any) => {console.log(err) },
+            complete: () => { console.log('success')}
+          }
+        );
+        }
+      console.log('addAPCIBySocialSecurityData added successfully.');
+  });
+  } 
+  getPersonByNAme() {
+    this.personService.findPersonByFullName(this.fullName)
+     .subscribe(person => {
+      this.id=person.id;
+      console.log("beneficiare with person id fetched",this.id)
+      this.beneficiary=person
+      console.log(this.id)
+    });
+  }
+  getPerson() {
+    this.personService.getPerson(this.id)
+     .subscribe(person => {
+      this.person = person;
+      console.log(this.id)
+      console.log(this.person)
+    });
+  }
+  addPerson() {
+    this.personService.addPerson(this.personSave).subscribe(
+      {
+        next: (data: any) => {},
+        error: (err:any) => {console.log(err) },
+        complete: () => { console.log('success')}
+      }
+
+    );
+  }
+
+  getContacts(){
+    this.personService.getContactByPersonId(this.id).subscribe(
+      {
+        next: (data: any) => {this.contact = data},
+        error: (err:any) => {console.log(err) },
+        complete: () => { }
+      }
+    )
+  }
+
+  getRib(){
+    this.personService.GetBankAccountsByPersonId(this.id).subscribe(
+      {
+        next: (data: any) => {this.rib = data},
+        error: (err:any) => {console.log(err) },
+        complete: () => { }
+      }
+    )
+  }
   ngOnInit() {
 
     this.firstForm = this.fb.group({

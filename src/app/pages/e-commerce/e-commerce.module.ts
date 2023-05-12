@@ -11,6 +11,7 @@ import {
   NbInputModule,
   NbCheckboxModule,
   NbStepperModule,
+  NbAlertModule,
   
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -63,6 +64,11 @@ import { TablesRoutingModule } from '../tables/tables-routing.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxUploaderModule } from 'ngx-uploader';
+import { FiltrePipe } from './profit-card/filtre.pipe';
+import { FiltreAdhesionPipe } from './profit-card/filtre-adhesion.pipe';
+import { FiltrePolicePipe } from './profit-card/filtre-police.pipe';
+import { FiltrestatuePipe } from './profit-card/filtrestatue.pipe';
+import { DateFiltrePipe } from './profit-card/date-filtre.pipe';
 
 @NgModule({
   imports: [
@@ -87,6 +93,7 @@ import { NgxUploaderModule } from 'ngx-uploader';
     FormsModule,
     ReactiveFormsModule,
     NgxUploaderModule,
+    NbAlertModule,
 
 
   ],
@@ -123,6 +130,11 @@ import { NgxUploaderModule } from 'ngx-uploader';
     EarningCardBackComponent,
     EarningPieChartComponent,
     EarningLiveUpdateChartComponent,
+    FiltrePipe,
+    FiltreAdhesionPipe,
+    FiltrePolicePipe,
+    FiltrestatuePipe,
+    DateFiltrePipe,
   ],
   providers: [
     CountryOrdersMapService,

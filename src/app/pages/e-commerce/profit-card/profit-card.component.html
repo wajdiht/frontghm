@@ -1,81 +1,24 @@
 <nb-card>
   <nb-card-header>Recherche un contrat</nb-card-header>
-
   <nb-card-body>
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row">
           <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
+            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police:</label>
           </div>
           <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            <input type="text" nbInput fullWidth status="success" [(ngModel)]="policeFiltre"
+              placeholder="Numero police">
           </div>
         </div>
 
         <div class="form-group row">
           <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
+            <label for="inputEmail1" class="label col-sm-3col-form-label">nom et prenom:</label>
           </div>
           <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-          </div>
-        </div>
-
-
-        <!-- <div class="form-group row">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-            </div>
-          </div> -->
-        <!-- <div class="form-group row">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-            </div>
-          </div> -->
-
-
-
-        <div class="form-group row">
-          <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">prénom</label>
-          </div>
-          <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">situation </label>
-          </div>
-          <div class="col-sm-9">
-            <nb-select fullWidth selected="1">
-              <nb-option value="1">Option 1</nb-option>
-              <nb-option value="2">Option 2</nb-option>
-            </nb-select>
-          </div>
-        </div>
-
-        <nb-checkbox status="success">vip</nb-checkbox>
-      </div>
-
-      <div class="col-md-6">
-        <div class="form-group row">
-          <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">matricule</label>
-          </div>
-          <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-3">
-            <label for="inputEmail1" class="label col-sm-3col-form-label">matricule</label>
-          </div>
-          <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            <input type="text" nbInput fullWidth status="success" [(ngModel)]="nameFilter" placeholder="nom">
           </div>
         </div>
 
@@ -86,17 +29,91 @@
             <label for="inputEmail1" class="label col-sm-3col-form-label">numero d'adhésion</label>
           </div>
           <div class="col-sm-9">
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            <input type="text" nbInput fullWidth status="success" [(ngModel)]="adhesionNumberFilter" placeholder="numero d'adhésion">
           </div>
         </div>
-        <nb-checkbox status="warning">couple</nb-checkbox>
+      </div>
+
+
+      <!-- <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            </div>
+          </div> -->
+      <!-- <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+            </div>
+          </div> -->
+
+
+
+
+      <div class="col-md-6">
+        <div class="form-group row">
+          <div class="col-3">
+            <label class="label col-sm-3col-form-label">statue : </label>
+          </div>
+          <div class="col-sm-9">
+            <nb-select fullWidth status="success" [(ngModel)]="statueFiltre" selected="">
+              <nb-option value="TERMINATED">Termine</nb-option>
+              <nb-option value="IN_PROGRESS"> En-cours</nb-option>
+              <nb-option value="CANCELLED"> Annuler</nb-option>
+              <nb-option value="NOT_SIGNED"> Non signe</nb-option>
+            </nb-select>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <div class="col-3">
+
+            <label for="inputEmail1" class="label col-sm-3col-form-label"> Date de Naissance</label>
+          </div>
+          <div class="col-sm-9">
+            <input type="date" nbInput fullWidth status="success" [(ngModel)]="dateeFiltre"
+              placeholder="numero d'adhésion">
+          </div>
+        </div>
       </div>
     </div>
     <div class="buttons-row">
-      <button nbButton status="warning" hero>recherche </button>
+      <button nbButton status="warning" (click)="filteredContracts()" hero>recherche </button>
       <button nbButton status="warning" [routerLink]="['/pages/legend-chart']" hero>ajouter </button>
     </div>
 
   </nb-card-body>
 
 </nb-card>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>N°adhèsion</th>
+        <th>police</th>
+        <th>Information</th>
+        <th>status</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let contract of contracts |  filtre : nameFilter | filtreAdhesion : adhesionNumberFilter | filtrePolice : policeFiltre | filtrestatue : statueFiltre | dateFiltre:dateeFiltre">
+        <td> {{contract.registrationNumber}}</td>
+        <td> {{contract.policyNumber}}</td>
+        <td>
+          <p>Nom: {{contract.fullName}}</p>
+          <p>Date de Naissance: {{contract.birthDate}}</p>
+        </td>
+        <td>{{contract.contractSituation}}</td>
+        <td>
+          <button type="button" class="btn btn-info"><i class="fa fa-book" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-info"><i class="fa fa-cog fa-spin  fa-fw"></i> <span
+              class="sr-only"></span></button>
+          <button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

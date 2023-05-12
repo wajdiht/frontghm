@@ -10,9 +10,40 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Tiers',
     icon: 'person-add-outline',
-    link: '/pages/iot-dashboard',
+    children: [
+      {
+        title: 'person physique',
+        link: './iot-dashboard/weather',
+      },
+      {
+        title: 'person libiral',
+        link: './iot-dashboard/temperature',
+      },
+      {
+        title: 'person moral ',
+        link: './iot-dashboard/security-cameras',
+      },
+    ],
   },
- 
+  {
+    title: 'consulter les demande ',
+    icon: 'lock-outline',
+    
+    children: [
+      {
+        title: 'changement rib',
+        link: '/pages/layout/list',
+      },
+      {
+        title: 'changement adress',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'changement contact',
+        link: '/pages/layout/tabs',
+      },
+    ],
+  },
   {
     title: 'Auth',
     icon: 'lock-outline',
@@ -35,4 +66,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
 ];

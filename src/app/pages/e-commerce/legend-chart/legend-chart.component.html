@@ -4,14 +4,14 @@
       <nb-step [label]="labelOne">
         <ng-template #labelOne>Identification</ng-template>
         <nb-card>
-          <nb-card-header >Données de la police</nb-card-header>
+          <nb-card-header>Données de la police</nb-card-header>
           <nb-card-body>
             <div class="form-group row">
               <div class="col-3">
                 <label for="inputEmail1" class="label col-sm-3col-form-label">numero police :</label>
               </div>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                <input type="text" nbInput fullWidth status="success" placeholder="numero police">
               </div>
             </div>
 
@@ -27,7 +27,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">N° du adhesion :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="Contract.registrationNumber"
+                      [(ngModel)]="Member.membershipCodeNumber" placeholder="N° du adhesion">
                   </div>
                 </div>
 
@@ -36,7 +37,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">date d'adhesion :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="date" nbInput fullWidth status="success" [(ngModel)]="Member.subscriptionDate"
+                      placeholder="date d'adhesion">
                   </div>
                 </div>
 
@@ -58,20 +60,23 @@
 
                 <div class="form-group row">
                   <div class="col-3">
-                    <label for="inputEmail1" class="label col-sm-3col-form-label">Adhérent :</label>
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Adhérent:</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="fullName" placeholder="Adhérent">
+                    <button nbButton (click)="getPersonByNAme()">recherche</button>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-3">
-                    <label for="inputEmail1" class="label col-sm-3col-form-label">situation : </label>
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">situation: </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="Contract.contractSituation" selected="IN_PROGRESS">
+                      <nb-option value="IN_PROGRESS">En-cours</nb-option>
+                      <nb-option value="CANCELLED">Annuler</nb-option>
+                      <nb-option value="TERMINATED">Terminé</nb-option>
+                      <nb-option value="NOT_SIGNED">No-signal</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -81,28 +86,31 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">date de situation:</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="date" nbInput fullWidth status="success" [(ngModel)]="Contract.contractSituationDate"
+                      [(ngModel)]="Member.membershipDate" placeholder="date de situation">
                   </div>
                 </div>
 
-                <nb-checkbox status="success">couple</nb-checkbox>
+                <nb-checkbox status="success" [(ngModel)]="Member.isVIP">VIP</nb-checkbox>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group row">
                   <div class="col-3">
-                    <label for="inputEmail1" class="label col-sm-3col-form-label">societe mére :</label>
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">societe mére:</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="Member.parentCompany"
+                      placeholder="societe mére">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-3">
-                    <label for="inputEmail1" class="label col-sm-3col-form-label">date fin d'adhésion : </label>
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">date fin d'adhésion: </label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="date" nbInput fullWidth status="success" [(ngModel)]="Member.membershipExpiryDate"
+                      placeholder="date fin d'adhésion">
                   </div>
                 </div>
 
@@ -113,7 +121,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">interlocuteur privilagie :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="Member.mainContact"
+                      placeholder="interlocuteur privilagie">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -122,13 +131,13 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">motif : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="Member.patterns" selected="PATTERN_1">
+                      <nb-option value="PATTERN_1">MODÈLE 1</nb-option>
+                      <nb-option value="PATTERN_2">MODÈLE 2</nb-option>
                     </nb-select>
                   </div>
                 </div>
-                <nb-checkbox status="warning">couple</nb-checkbox>
+                <nb-checkbox status="warning" [(ngModel)]="Member.isCouple">couple</nb-checkbox>
               </div>
             </div>
           </nb-card-body>
@@ -139,10 +148,11 @@
             <div class="form-group row">
               <div class="col-3">
 
-                <label for="inputEmail1" class="label col-sm-3col-form-label">code tarification</label>
+                <label for="inputEmail1" class="label col-sm-3col-form-label">code tarification:</label>
               </div>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="PricingData.pricingCode"
+                  placeholder="code tarification">
               </div>
             </div>
             <div class="form-group row">
@@ -151,7 +161,8 @@
                 <label for="inputEmail1" class="label col-sm-3col-form-label">code prestation</label>
               </div>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="PricingData.serviceCode"
+                  placeholder="code prestation">
               </div>
             </div>
           </nb-card-body>
@@ -160,22 +171,28 @@
           <nb-card-header>Commentaire & prestations</nb-card-header>
           <nb-card-body>
 
-
             <label for="inputEmail1" class="label col-sm-3col-form-label">Commentaire : </label>
-
-            <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
-            <nb-checkbox status="warning">Bloucage de la saisir des prestationtion</nb-checkbox>
-
-            <nb-checkbox status="warning">Bloucage du paiement des prestation</nb-checkbox>
-
-
-
+            <input type="text" nbInput fullWidth status="success" [(ngModel)]="Comment.comment"
+              placeholder="Commentaire">
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">type: </label>
+              </div>
+              <div class="col-sm-9">
+                <nb-select fullWidth [(ngModel)]="Comment.type" selected="SUSPENSION_OF_BENEFITS_PAYMENT">
+                  <nb-option value="SUSPENSION_OF_PROCESSING_BENEFITS">Bloucage du la saisir des prestation</nb-option>
+                  <nb-option value="SUSPENSION_OF_BENEFITS_PAYMENT">Bloucage du paiement des prestation</nb-option>
+                </nb-select>
+              </div>
+            </div>
 
           </nb-card-body>
         </nb-card>
 
-        <button nbButton disabled nbStepperNext>prev</button>
-        <button nbButton nbStepperNext>next</button>
+        <button nbButton disabled nbStepperNext>précédente</button>
+        <button nbButton (click)="addMember()" >sync</button>
+
+        <button nbButton nbStepperNext (click)="addContract()">suivant</button>
       </nb-step>
       <nb-step [label]="labelTwo">
         <ng-template #labelTwo>Adhérent</ng-template>
@@ -188,8 +205,19 @@
                   <div class="col-3">
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Adhérent :</label>
                   </div>
+                  <!--
+                  <td>{{person.firstName}}</td>
+                  <td>{{person.lastName}}</td>
+                  <td>{{person.personType}}</td>
+                  <td>{{person.policyNumber}}</td>
+                  <td>{{person.nationality}}</td>
+                  <td>{{person.dateOfBirth}}</td>
+                  <td>{{person.civilStatus}}</td>
+                  <td>{{person.cityOfBirth}}</td>
+
+-->
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Adhérent">
+                    <strong>{{person.firstName}} {{person.lastName}}</strong>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -197,7 +225,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date de naissance :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Date de naissance ">
+                    <strong>{{person.dateOfBirth}}</strong>
                   </div>
                 </div>
 
@@ -206,7 +234,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">situation familliale :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="situation familliale">
+                    <strong>{{person.civilStatus}}</strong>
                   </div>
                 </div>
 
@@ -220,7 +248,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Address : </label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Address">
+                    <strong>{{person.cityOfBirth}}</strong>
                   </div>
                 </div>
 
@@ -250,7 +278,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">N° piéces d'identite : </label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="N° piéces d'identite">
+                    <strong>{{person.identityDocumentNumber}}</strong>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -258,7 +286,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Teléphone :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Teléphone">
+                    <strong>{{contact.mobilePhoneNumber}}</strong>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -266,7 +294,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Rib :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" >
+                    <strong>{{rib.ribNumber}}</strong>
                   </div>
                 </div>
 
@@ -277,7 +305,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Nbre de parents à charge :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" >
+                    <input type="text" nbInput fullWidth status="success">
                   </div>
                 </div>
 
@@ -287,7 +315,7 @@
           </nb-card-body>
         </nb-card>
         <nb-card>
-          <nb-card-header>Données de la police</nb-card-header>
+          <nb-card-header>Données Professional</nb-card-header>
           <nb-card-body>
 
             <div class="row">
@@ -297,9 +325,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">position : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.position" selected="IN_ACTIVITY">
+                      <nb-option value="IN_ACTIVITY">active</nb-option>
+                      <nb-option value="OFF_ACTIVITY">désactiver</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -308,7 +336,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Salaire :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Salaire">
+                    <input type="text" nbInput fullWidth [(ngModel)]="ProfessionalInfo.salary" status="success"
+                      placeholder="Salaire">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -317,9 +346,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">classe : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.classe" selected="CLASS_1">
+                      <nb-option value="CLASS_1">CLASS_1</nb-option>
+                      <nb-option value="CLASS_2">CLASS_2</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -329,9 +358,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Echelon : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.echelon" selected="ECHELON_1">
+                      <nb-option value="ECHELON_1">ECHELON_1</nb-option>
+                      <nb-option value="ECHELON_2">ECHELON_2</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -340,7 +369,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date fin cotisation :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Adhérent">
+                    <input type="date" nbInput fullWidth [(ngModel)]="ProfessionalInfo.contributionEndDate"
+                      status="success" placeholder="Adhérent">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -349,9 +379,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Situatuin d'adhesion : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.membershipStatus" selected="1">
+                      <nb-option value="INACTIVE">Désactiver</nb-option>
+                      <nb-option value="ACTIVE">Active</nb-option>[, ]
                     </nb-select>
                   </div>
                 </div>
@@ -362,7 +392,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date position :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Date position">
+                    <input type="date" nbInput fullWidth [(ngModel)]="ProfessionalInfo.positionDate" status="success"
+                      placeholder="Date position">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -371,9 +402,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Collége : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.college" selected="COLLEGE_1">
+                      <nb-option value="COLLEGE_1">COLLEGE_1</nb-option>[COLLEGE_1, COLLEGE_2]
+                      <nb-option value="COLLEGE_2">COLLEGE_2</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -383,9 +414,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Catègorie : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.category" selected="CATEGORY_1">
+                      <nb-option value="CATEGORY_1">CATEGORY_1</nb-option>
+                      <nb-option value="CATEGORY_2">CATEGORY_2</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -394,7 +425,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date debut cotisation :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Adhérent">
+                    <input type="date" nbInput fullWidth status="success"
+                      [(ngModel)]="ProfessionalInfo.contributionStartDate" placeholder="Adhérent">
                   </div>
                 </div>
 
@@ -404,9 +436,9 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Type de remboursement : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="ProfessionalInfo.refundType" selected="REFUND_BY_BANK_WIRE">
+                      <nb-option value="REFUND_BY_BANK_WIRE">REMBOURSEMENT PAR VIREMENT BANCAIRE</nb-option>
+                      <nb-option value="OTHER_REFUND_TYPE">AUTRE REMBOURSEMENTTYPE</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -414,13 +446,13 @@
             </div>
           </nb-card-body>
         </nb-card>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
+        <button nbButton nbStepperPrevious>précédente</button>
+        <button nbButton nbStepperNext (click)="addprofessionalinfo()">suivant</button>
       </nb-step>
       <nb-step [label]="labelThree">
         <ng-template #labelThree>securite social</ng-template>
         <nb-card>
-          <nb-card-header>Adhérent </nb-card-header>
+          <nb-card-header>Données securite social </nb-card-header>
           <nb-card-body>
             <div class="row">
               <div class="col-md-6">
@@ -429,7 +461,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Matricule Cnrps :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Matricule Cnrps">
+                    <input type="text" nbInput fullWidth [(ngModel)]="SocialSecurityData.cnrpsRegistrationNumber"
+                      status="success" placeholder="Matricule Cnrps">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -437,10 +470,11 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Matricule Cnam:</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="Matricule Cnam">
+                    <input type="text" nbInput fullWidth [(ngModel)]="SocialSecurityData.cnamRegistrationNumber"
+                      status="success" placeholder="Matricule Cnam">
                   </div>
                 </div>
-                <nb-checkbox status="success">APCI</nb-checkbox>
+                <nb-checkbox status="success" [(ngModel)]="SocialSecurityData.isAPCI">APCI</nb-checkbox>
 
 
               </div>
@@ -451,7 +485,8 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">matricule Cnss:</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="matricule Cnss">
+                    <input type="text" nbInput fullWidth [(ngModel)]="SocialSecurityData.cnssRegistrationNumber"
+                      status="success" placeholder="matricule Cnss">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -459,19 +494,22 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">filier : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="SocialSecurityData.sector" selected="SECTOR_1">
+                      <nb-option value="SECTOR_1">SECTEUR_1</nb-option>
+                      <nb-option value="SECTOR_2">SECTEUR_2</nb-option>
+                      <nb-option value="SECTOR_3">SECTEUR_3</nb-option>
+                      <nb-option value="SECTOR_4">SECTEUR_4</nb-option>
                     </nb-select>
                   </div>
                 </div>
-                <nb-checkbox status="success">Maladie Chronique </nb-checkbox>
+                <nb-checkbox status="success" [(ngModel)]="SocialSecurityData.isChronicDisease">Maladie Chronique
+                </nb-checkbox>
               </div>
             </div>
           </nb-card-body>
         </nb-card>
         <nb-card>
-          <nb-card-header>Données de la police</nb-card-header>
+          <nb-card-header>APCI</nb-card-header>
           <nb-card-body>
 
 
@@ -482,7 +520,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date APCI :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Date APCI ">
+                    <input type="date" nbInput fullWidth [(ngModel)]="APCI.dateAPCI" status="success" placeholder="Date APCI ">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -490,19 +528,21 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date debut :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Date debut">
+                    <input type="date" nbInput fullWidth status="success" [(ngModel)]="APCI.startDate" placeholder="Date debut">
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group row">
                   <div class="col-3">
-                    <label for="inputEmail1" class="label col-sm-3col-form-label">APCI : </label>
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">APCI Type : </label>
                   </div>
                   <div class="col-sm-9">
-                    <nb-select fullWidth selected="1">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
+                    <nb-select fullWidth [(ngModel)]="APCI.apciEnumType" selected="CASE_1">
+                      <nb-option value="CASE_1">CAS_1</nb-option>
+                      <nb-option value="CASE_2">CAS_2</nb-option>
+                      <nb-option value="CASE_3">CAS_3</nb-option>
+                      <nb-option value="CASE_4">CAS_4</nb-option>
                     </nb-select>
                   </div>
                 </div>
@@ -511,7 +551,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date fin :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Date fin">
+                    <input type="date" nbInput fullWidth [(ngModel)]="APCI.endDate"  status="success" placeholder="Date fin">
                   </div>
                 </div>
 
@@ -524,7 +564,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">nom :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth status="success" placeholder="nom ">
+                    <input type="text" nbInput fullWidth [(ngModel)]="APCI.name" status="success" placeholder="nom ">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -532,7 +572,7 @@
                     <label for="inputEmail1" class="label col-sm-3col-form-label">Date expiration de bons :</label>
                   </div>
                   <div class="col-sm-9">
-                    <input type="date" nbInput fullWidth status="success" placeholder="Date expiration de bons">
+                    <input type="date" nbInput fullWidth status="success" [(ngModel)]="APCI.expiryDate" placeholder="Date expiration de bons">
                   </div>
                 </div>
               </div>
@@ -541,8 +581,8 @@
         </nb-card>
 
 
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
+        <button nbButton nbStepperPrevious (click)="removeContractId()">précédente</button>
+        <button nbButton nbStepperNext  (click)="addSocialSecurityData()">suivant</button>
       </nb-step>
       <nb-step [label]="labelFour">
         <ng-template #labelFour>Gestion beneficaire</ng-template>
@@ -553,150 +593,147 @@
               <div class="col-10"></div>
               <div class="col-2">
                 <button nbButton (click)="ajouter = true" *ngIf="!ajouter">ajouter</button>
-                
+
+              </div>
+            </div>
+
+            <div *ngIf="ajouter">
+              <div class="row">
+                <div class="col-12">
+                  <nb-card>
+                    <nb-card-header>Données personnel </nb-card-header>
+                    <nb-card-body>
+                      <div class="row">
+                        <div class="col-md-6">
+
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">N° du adhesion :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" [(ngModel)]="Beneficiary.numeroAdhesion" placeholder="N° du adhesion">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">date debut prestation
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="date" nbInput fullWidth status="success" [(ngModel)]="Beneficiary.dateDebutPrestation" placeholder="date debut prestation">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label"> Adhérent:</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" [(ngModel)]="Beneficiary.nomAdherent" [(ngModel)]="fullName" placeholder="Adhérent">
+                               <button nbButton (click)="getPersonByNAme()">recherche</button>
+                            </div>
+                          </div>
+                        
+                            
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label"> plafond :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth [(ngModel)]="Beneficiary.plafond" status="success" placeholder="plafond">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">situation d'adhesion :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth [(ngModel)]="Beneficiary.situationAdhesion" status="success" placeholder="situation d'adhesion">
+                            </div>
+                          </div>
+
+
+
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label"> date debut pristation
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="date" nbInput fullWidth status="success"[(ngModel)]="Beneficiary.dateFinPrestation" placeholder="date debut pristation">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">quality : </label>
+                            </div>
+                            <div class="col-sm-9">
+                              <nb-select fullWidth [(ngModel)]="Beneficiary.quality"selected="FATHER">
+                                <nb-option value="FATHER">pére</nb-option>
+                                <nb-option value="MOTHER">mere</nb-option>
+                                <nb-option value="SPOUSE">conjoint</nb-option>
+                                <nb-option value="CHILD">enfants</nb-option>
+                              </nb-select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">nom & prenom :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth [(ngModel)]="Beneficiary.nomEtPrenom" status="success" placeholder="nom & prenom">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">date situation adhesion
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="date" nbInput [(ngModel)]="Beneficiary.dateAdhesion" fullWidth status="success"
+                                placeholder="date situation adhesion">
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </nb-card-body>
+                  </nb-card>
+                  <nb-card>
+                    <nb-card-header>Données profisionnel </nb-card-header>
+                    <nb-card-body>
+
+
+
+
+                      <div class="form-group row">
+                        <div class="col-3">
+
+                          <label for="inputEmail1" class="label col-sm-3col-form-label">date position:</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="date" nbInput fullWidth status="success" [(ngModel)]="Beneficiary.datePosition"  placeholder="date position">
+                        </div>
+                      </div>
+
+
+                    </nb-card-body>
+                  </nb-card>
+                  <nb-card>
+                    <nb-card-header>Données securite social :</nb-card-header>
+                    <nb-card-body>
+
+                      <nb-checkbox status="success" [(ngModel)]="SocialSecurityData.isAPCI">APCI </nb-checkbox>
+                    </nb-card-body>
+                  </nb-card>
                 </div>
-              </div>
-            
-<div *ngIf="ajouter">
-            <div class="row">
-              <div class="col-12">
-                <nb-card>
-                  <nb-card-header>Données personnel </nb-card-header>
-                  <nb-card-body>
-                    <div class="row">
-                      <div class="col-md-6">
 
-
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">N° du adhesion :</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" nbInput fullWidth status="success" placeholder="N° du adhesion">
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">date debut prestation
-                              :</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="date" nbInput fullWidth status="success" placeholder="date debut prestation">
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label"> Adhérent:</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" nbInput fullWidth status="success" placeholder="Adhérent">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">plafond : </label>
-                          </div>
-                          <div class="col-sm-9">
-                            <nb-select fullWidth selected="1">
-                              <nb-option value="1">Option 1</nb-option>
-                              <nb-option value="2">Option 2</nb-option>
-                            </nb-select>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">situation d'adhesion :
-                            </label>
-                          </div>
-                          <div class="col-sm-9">
-                            <nb-select fullWidth selected="1">
-                              <nb-option value="1">Option 1</nb-option>
-                              <nb-option value="2">Option 2</nb-option>
-                            </nb-select>
-                          </div>
-                        </div>
-
-
-
-                      </div>
-
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label"> date debut pristation
-                              :</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" nbInput fullWidth status="success" placeholder="date debut pristation">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">quality : </label>
-                          </div>
-                          <div class="col-sm-9">
-                            <nb-select fullWidth selected="1">
-                              <nb-option value="1">pére</nb-option>
-                              <nb-option value="2">mere</nb-option>
-                              <nb-option value="3">conjoint</nb-option>
-                              <nb-option value="4">enfants</nb-option>
-                            </nb-select>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">nom & prenom :</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" nbInput fullWidth status="success" placeholder="nom & prenom">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-3">
-                            <label for="inputEmail1" class="label col-sm-3col-form-label">date situation adhesion
-                              :</label>
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="date" nbInput fullWidth status="success" placeholder="date situation adhesion">
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </nb-card-body>
-                </nb-card>
-                <nb-card>
-                  <nb-card-header>Données profisionnel </nb-card-header>
-                  <nb-card-body>
-
-
-
-
-                    <div class="form-group row">
-                      <div class="col-3">
-
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">date position:</label>
-                      </div>
-                      <div class="col-sm-9">
-                        <input type="date" nbInput fullWidth status="success" placeholder="date position">
-                      </div>
-                    </div>
-
-
-                  </nb-card-body>
-                </nb-card>
-                <nb-card>
-                  <nb-card-header>Données securite social :</nb-card-header>
-                  <nb-card-body>
-
-                    <nb-checkbox status="success">APCI </nb-checkbox>
-                  </nb-card-body>
-                </nb-card>
-              </div>
-
-                <button nbButton  (click)="ajouter = false">valider</button>
+                <button nbButton (click)="ajouter = false"  (click)=AddBeneficiary()>valider</button>
                 <button nbButton [routerLink]="['/pages/legend-chart']">annuler</button>
 
               </div>
@@ -707,11 +744,23 @@
           </nb-card-body>
         </nb-card>
 
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
+        <button nbButton nbStepperPrevious>précédente</button>
+        <button nbButton nbStepperNext >suivant</button>
       </nb-step>
       <nb-step [label]="labelFive">
         <ng-template #labelFive>pieces justificatives</ng-template>
+        <div class="form-group row">
+          <label for="inputEmail1" class="label col-sm-3col-form-label">file : </label>
+          <div class="col-md-6">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onFileSelected($event)">
+          <label class="custom-file-label">file</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+
 
         <div class="form-group row">
           <label for="inputEmail1" class="label col-sm-3col-form-label">Nature : </label>
@@ -722,40 +771,64 @@
             </nb-select>
           </div>
           <div class="col-md-6">
-            
           </div>
         </div>
 
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
+        <button nbButton nbStepperPrevious>précédente</button>
+        <button nbButton nbStepperNext>suivant</button>
+
       </nb-step>
     </nb-stepper>
   </nb-card-body>
 </nb-card>
-<h5> &emsp;Liste de PFEs</h5>
-<button (click)="getPerson()">supprimer</button>
-    <table class="table" width=100%>
-        <thead class="bg-light">
-        <tr>
-         
-        <th width="20">ID</th>
-        <th width="1000">Titre</th>
-        <th width="200">Type</th>
-        <th width="200">Action</th>
-        </tr>
 
-          
+<div ng>
+  <label for="inputEmail1" class="label col-sm-3col-form-label">Nature : </label>
+  <div class="col-md-6">
+    <nb-select fullWidth selected="PHYSICAL_PERSON" [(ngModel)]="personSave.personType">
+      <nb-option value="PHYSICAL_PERSON">personne physique</nb-option>
+      <nb-option value="MORAL_PERSON">personne moral</nb-option>
+      <nb-option value="LIBERAL_PERSON">personne liberal</nb-option>
+    </nb-select>
+  </div>
+  <input type="text" nbInput status="success" [(ngModel)]="personSave.policyNumber" placeholder="policyNumber">
+  <input type="text" nbInput status="success" [(ngModel)]="personSave.firstName" placeholder="firstName">
+  <input type="text" nbInput status="success" [(ngModel)]="personSave.lastName" placeholder="lastName">
+  <input type="text" nbInput status="success" [(ngModel)]="personSave.nationality" placeholder="nationality">
+  <input type="button" (click)="addPerson()" value="save">
+</div>
+<nb-card>
+  <nb-card-header>person data</nb-card-header>
+  <button nbButton>TestData</button>
+  <table class="table" width=100%>
+    <thead class="bg-light">
+      <tr>
+        <th width="">id</th>
 
+        <th width="">firstName</th>
+        <th width="">lastName</th>
+        <th width="">personType</th>
+        <th width="">policyNumber</th>
+        <th width="">nationality</th>
+        <th width="">dateOfBirth</th>
+        <th width="">civilStatus</th>
+        <th width="">cityOfBirth</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="person">
+        <td>{{person.id}}</td>
 
-                    
-        </thead>
-        <tbody >
-            
-          <tr *ngIf="person">
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+        <td>{{person.personType}}</td>
+        <td>{{person.policyNumber}}</td>
+        <td>{{person.nationality}}</td>
+        <td>{{person.dateOfBirth}}</td>
+        <td>{{person.civilStatus}}</td>
+        <td>{{person.cityOfBirth}}</td>
 
-          <td>{{person.firstName}}</td>
-          <td>{{person.lastName}}</td>
-          <td>{{person.cityOfBirth}}</td>
-          </tr>
-        </tbody>
-        </table>
+      </tr>
+    </tbody>
+  </table>
+</nb-card>

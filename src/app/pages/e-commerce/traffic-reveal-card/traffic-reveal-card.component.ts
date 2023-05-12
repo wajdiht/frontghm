@@ -12,7 +12,11 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   templateUrl: './traffic-reveal-card.component.html',
 })
 export class TrafficRevealCardComponent  {
+ 
 
+  onActionClick(item) {
+    console.log('Clicked on action for item:', item);
+  }
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',

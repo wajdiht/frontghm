@@ -1,61 +1,442 @@
-<nb-card size="giant">
+<div class="row">
+  <div class="col-12">
+    <nb-card>
+      <nb-tabset>
+        <nb-tab tabTitle="general">
+          <nb-card>
+            <nb-card-header>Données de la police </nb-card-header>
+            <nb-card-body>
+              <div class="row">
+                <div class="col-md-6">
 
-  <nb-card-header>
-    Security Cameras
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label  class="label col-sm-3col-form-label"  >N° police :</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" [(ngModel)]="personSave.policyNumber" nbInput fullWidth status="success" placeholder="N° police">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
 
-    <button class="single-view-button"
-            nbButton
-            size="small"
-            [appearance]="isSingleView ? 'filled' : 'outline'"
-            (click)="isSingleView = true">
-      <i class="nb-square"></i>
-    </button>
-    <button class="grid-view-button"
-            nbButton
-            size="small"
-            [appearance]="isSingleView ? 'outline' : 'filled'"
-            (click)="isSingleView = false">
-      <nb-icon icon="grid" pack="eva"></nb-icon>
-    </button>
-  </nb-card-header>
+          <nb-card>
+            <nb-card-header>Données D'Identification </nb-card-header>
+            <nb-card-body>
+              <div class="row">
+                <div class="col-md-6">
 
-  <div class="grid-container">
+                  
 
-    <div class="single-view" *ngIf="isSingleView">
-      <div class="camera" [style.background-image]="'url(' + selectedCamera.source + ')'">
-        <span class="camera-name">{{ selectedCamera.title }}</span>
-      </div>
-    </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label" >nom:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput [(ngModel)]="personSave.firstName" fullWidth status="success" placeholder="nom">
+                    </div>
+                  </div>
 
-    <div class="grid-view" *ngIf="!isSingleView">
-      <div class="camera"
-           *ngFor="let camera of cameras"
-           [style.background-image]="'url(' + camera.source + ')'"
-           (click)="selectCamera(camera)">
-        <span class="camera-name">{{ camera.title }}</span>
-      </div>
-    </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label" >nationality:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput fullWidth [(ngModel)]="personSave.nationality" status="success" placeholder="nationality">
+                    </div>
+                  </div>
 
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">type piece Identification:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <nb-select [(ngModel)]="personSave.identityDocumentType" fullWidth selected="PASSPORT">
+                        <nb-option value="PASSPORT">Passport</nb-option>
+                        <nb-option value="ID">Cin</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'dentification:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput fullWidth status="success"  [(ngModel)]="personSave.identityDocumentNumber" placeholder="N° piece d'dentification">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label"> Date piece d'dentification:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="date" nbInput fullWidth status="success" [(ngModel)]="personSave.identityDocumentIssueDate" placeholder="Date piece d'dentification">
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+                <div class="col-md-6">
+                 
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">prenom:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" [(ngModel)]="personSave.lastName" nbInput fullWidth status="success" placeholder="prenom">
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+          <nb-card>
+            <nb-card-header>Autre Information </nb-card-header>
+            <nb-card-body>
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">date naissance:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="date" [(ngModel)]="personSave.dateOfBirth" nbInput fullWidth status="success" placeholder="date naissance">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">situation familliale:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <nb-select [(ngModel)]="personSave.civilStatus" fullWidth selected="MARRIED">
+                        <nb-option value="MARRIED">MARIÉE </nb-option>
+                        <nb-option value="DIVORCED">DIVORCÉE </nb-option>
+                        <nb-option value="SINGLE">SEULE </nb-option>
+                        <nb-option value="WIDOWED">VEUVE </nb-option>
+
+                      </nb-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">situation vie:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <nb-select [(ngModel)]="personSave.vitalStatus" fullWidth selected="DECEASED">
+                        <nb-option value="DECEASED">DÉFUNTE</nb-option>
+                        <nb-option value="ALIVE">VIVANTE</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">ville de naissance:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" [(ngModel)]="personSave.cityOfBirth" nbInput fullWidth status="success" placeholder="ville de naissance">
+                    </div>
+                  </div>
+
+
+                  
+                  <div class="form-group row">
+                    <div class="col-3">
+
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">Nom de jeune fille:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput [(ngModel)]="personSave.maidenName" fullWidth status="success" placeholder="Nom de jeune fille">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">sexe:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <nb-select  [(ngModel)]="personSave.gender" fullWidth selected="MALE">
+                        <nb-option value="MALE">MÂLE </nb-option>
+                        <nb-option value="FEMALE">FEMME</nb-option>
+                        <nb-option value="NON_CONFORMING">NON_CONFORME</nb-option>
+                      </nb-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-3">
+
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">date d'effet FS:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="date" nbInput [(ngModel)]="personSave.effectiveDate" fullWidth status="success" placeholder="date d'effet FS">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                    <div class="col-3">
+
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">pays de naissance :</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput [(ngModel)]="personSave.countryOfBirth" fullWidth status="success" placeholder="pays de naissance">
+                    </div>
+                  </div>
+               
+                  
+                  <div class="form-group row">
+                    <div class="col-3">
+
+                      <label for="inputEmail1" class="label col-sm-3col-form-label">Gouv de naissance:</label>
+                    </div>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput [(ngModel)]="personSave.stateOfBirth" fullWidth status="success" placeholder="Gouv de naissance">
+                    </div>
+                  </div>
+                  <nb-checkbox [(ngModel)]="personSave.isResident" status="success">Residance </nb-checkbox>
+                </div>
+              </div>
+
+
+            </nb-card-body>
+          </nb-card>
+          <nb-card>
+            <nb-card-header>Rattachment :</nb-card-header>
+            <nb-card-body>
+
+              <nb-checkbox  status="success">photo </nb-checkbox>
+            </nb-card-body>
+          </nb-card>
+
+          <button nbButton (click)="addPerson()">valider</button>
+          <button nbButton>annuler</button>
+
+
+
+        </nb-tab>
+
+        <nb-tab tabTitle="Contact">
+          <div class="row ">
+            <div class="col-10"></div>
+            <div class="col-2">
+              <button nbButton (click)=" ajouterContact = true" *ngIf="! ajouterContact">ajouter</button>
+            </div>
+          </div>
+          <div *ngIf=" ajouterContact">
+
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">Email:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="email" nbInput fullWidth status="success" [(ngModel)]="contact.email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">N° Mobile:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="contact.mobilePhoneNumber" placeholder="N° Mobile">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">N° Fix:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="contact.landlineNumber" placeholder="N° Fix">
+              </div>
+            </div>
+            <button nbButton (click)="addContact()" (click)="ajouterContact = false">Valider</button>
+            <button nbButton>Annuler</button>
+          </div>
+
+
+        </nb-tab>
+        <nb-tab tabTitle="Address">
+          <div class="row ">
+            <div class="col-10"></div>
+            <div class="col-2">
+              <button nbButton (click)="ajouterAddress = true" *ngIf="!ajouterAddress">ajouter</button>
+            </div>
+          </div>
+          <div *ngIf="ajouterAddress">
+
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">Rue:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth  status="success" placeholder="Rue"  [(ngModel)]="address.street">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">Gouvernorat:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth  status="success" placeholder="Gouvernorat" [(ngModel)]="address.state">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label"> ville:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth  status="success" placeholder="ville" [(ngModel)]="address.city">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">Code postal:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput  fullWidth status="success" placeholder="Code postal"  [(ngModel)]="address.zip">
+              </div>
+            </div>
+            <button nbButton (click)="addAddress()" (click)="ajouterAddress = false">Valider</button>
+            <button nbButton>Annuler</button>
+          </div>
+
+        </nb-tab>
+        <nb-tab tabTitle="Rib">
+          <div class="row ">
+            <div class="col-10"></div>
+            <div class="col-2">
+              <button nbButton (click)="ajouterRib = true" *ngIf="!ajouterRib">ajouter</button>
+            </div>
+          </div>
+          <div *ngIf="ajouterRib">
+            <nb-card>
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">N° d'ordre:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.orderNumber" placeholder="N° d'ordre">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Type de RIB:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribType" placeholder="Type de RIB">
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Devise:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.currency" placeholder="Devise">
+                  </div>
+                </div>
+                </div>
+              </div>
+              </nb-card-body>
+            </nb-card>
+            <nb-card>
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-6">
+
+                
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">RIB:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribNumber" placeholder="RIB">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Banque:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.bankName" placeholder="Banque">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Compte:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.accountNumber" placeholder="Compte">
+                  </div>
+                </div>
+                  </div>
+                  <div class="col-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Localisation:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.locality" placeholder="Localisation">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Clè:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribKey" placeholder="Clè">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Address de l'agence :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.agencyAddress" placeholder="Address de l'agence">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              </nb-card-body>
+            </nb-card>
+            <nb-card>
+              <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+                <label  class="label col-sm-3col-form-label"> Agence:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.agency" placeholder="Agence">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">Guichet :</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.windowNumber" placeholder="Guichet">
+              </div>
+            </div>
+              </nb-card-body>
+            </nb-card>
+                <button nbButton (click)="addRib()" (click)="ajouterRib = false">Valider</button>
+                <button nbButton>Annuler</button>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
   </div>
-
-  <nb-card-footer>
-    <nb-actions [size]="actionSize" fullWidth>
-      <nb-action>
-        <nb-icon icon="pause-circle-outline" pack="eva"></nb-icon>
-        Pause
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="list-outline" pack="eva"></nb-icon>
-        Logs
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="search-outline" pack="eva"></nb-icon>
-        Search
-      </nb-action>
-      <nb-action>
-        <nb-icon icon="settings-2-outline" pack="eva"></nb-icon>
-        Setup
-      </nb-action>
-    </nb-actions>
-  </nb-card-footer>
-</nb-card>
+</div>

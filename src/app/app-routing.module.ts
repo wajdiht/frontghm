@@ -8,16 +8,17 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-import { LegendComponent } from '@swimlane/ngx-charts';
-import { ECommerceLegendChartComponent } from './pages/e-commerce/legend-chart/legend-chart.component';
 
-export const routes: Routes = [
+export const routes: Routes = 
+[
+ 
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
 
+ 
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -51,6 +52,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
+
+ 
+
+
 
 const config: ExtraOptions = {
   useHash: false,

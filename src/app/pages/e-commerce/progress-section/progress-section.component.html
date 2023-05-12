@@ -1,12 +1,730 @@
-<nb-card size="medium">
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
   <nb-card-body>
-    <div class="progress-info" *ngFor="let item of progressInfoData">
-      <div class="subtitle">{{ item.title }}</div>
-      <div class="h3">{{ item.value | ngxNumberWithCommas }}</div>
-      <nb-progress-bar [value]="item.activeProgress"></nb-progress-bar>
-      <div class="caption description">
-        <bdi>{{ item.description }}</bdi>
-      </div>
-    </div>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>Identification</ng-template>
+        <nb-card>
+          <nb-card-header>Données de la police</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+                <label for="inputEmail1" class="label col-sm-3col-form-label">numero police :</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" placeholder="numero police">
+              </div>
+            </div>
+
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Données d'Identification </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">N° du adhesion :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="N° du adhesion">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">date d'adhesion :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="date d'adhesion">
+                  </div>
+                </div>
+
+
+                <!-- <div class="form-group row">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Numero police</label>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    </div>
+                  </div> -->
+                <!-- <div class="form-group row">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'identite</label>
+                    <div class="col-sm-9">
+                      <input type="text" nbInput fullWidth status="success" placeholder="Warning Input">
+                    </div>
+                  </div> -->
+
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Adhérent:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Adhérent">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">situation: </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">date de situation:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="date de situation">
+                  </div>
+                </div>
+
+                <nb-checkbox status="success">couple</nb-checkbox>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">societe mére:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="societe mére">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">date fin d'adhésion: </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="date fin d'adhésion">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">interlocuteur privilagie :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder=">interlocuteur privilagie">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">motif : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <nb-checkbox status="warning">couple</nb-checkbox>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Données de Tarification</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+
+                <label for="inputEmail1" class="label col-sm-3col-form-label">code tarification:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" placeholder="code tarification">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+
+                <label for="inputEmail1" class="label col-sm-3col-form-label">code prestation</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="success" placeholder="code prestation">
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Commentaire & prestations</nb-card-header>
+          <nb-card-body>
+            <label for="inputEmail1" class="label col-sm-3col-form-label">Commentaire : </label>
+
+            <input type="text" nbInput fullWidth status="success" placeholder="">
+            <nb-checkbox status="warning">Bloucage de la saisir des prestationtion</nb-checkbox>
+
+            <nb-checkbox status="warning">Bloucage du paiement des prestation</nb-checkbox>
+          </nb-card-body>
+        </nb-card>
+
+        <button nbButton disabled nbStepperNext>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Adhérent</ng-template>
+        <nb-card>
+          <nb-card-header>Adhérent </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Adhérent :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Adhérent">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date de naissance :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Date de naissance ">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">situation familliale :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="situation familliale">
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Address : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Address">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Nbre d'enfants à charge</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Nbre d'enfants à charge">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">matricule :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="matricule">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">N° piéces d'identite : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="N° piéces d'identite">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Teléphone :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Teléphone">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Rib :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Nbre de parents à charge :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success">
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Données de la police</nb-card-header>
+          <nb-card-body>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">position : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Salaire :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Salaire">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">classe : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Echelon : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date fin cotisation :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Adhérent">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Situatuin d'adhesion : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date position :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Date position">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Collége : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Catègorie : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date debut cotisation :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Adhérent">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Type de remboursement : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelThree">
+        <ng-template #labelThree>securite social</ng-template>
+        <nb-card>
+          <nb-card-header>Adhérent </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Matricule Cnrps :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Matricule Cnrps">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Matricule Cnam:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="Matricule Cnam">
+                  </div>
+                </div>
+                <nb-checkbox status="success">APCI</nb-checkbox>
+
+
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">matricule Cnss:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="matricule Cnss">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">filier : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <nb-checkbox status="success">Maladie Chronique </nb-checkbox>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Données de la police</nb-card-header>
+          <nb-card-body>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date APCI :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Date APCI ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date debut :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Date debut">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">APCI : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth selected="1">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date fin :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Date fin">
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-md-4">
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">nom :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="success" placeholder="nom ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label for="inputEmail1" class="label col-sm-3col-form-label">Date expiration de bons :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="success" placeholder="Date expiration de bons">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+
+
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Gestion beneficaire</ng-template>
+        <nb-card>
+          <nb-card-header>Gestion beneficaire</nb-card-header>
+          <nb-card-body>
+            <div class="row ">
+              <div class="col-10"></div>
+              <div class="col-2">
+                <button nbButton (click)="ajouter = true" *ngIf="!ajouter">ajouter</button>
+
+              </div>
+            </div>
+
+            <div *ngIf="ajouter">
+              <div class="row">
+                <div class="col-12">
+                  <nb-card>
+                    <nb-card-header>Données personnel </nb-card-header>
+                    <nb-card-body>
+                      <div class="row">
+                        <div class="col-md-6">
+
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">N° du adhesion :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" placeholder="N° du adhesion">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">date debut prestation
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="date" nbInput fullWidth status="success" placeholder="date debut prestation">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label"> Adhérent:</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" placeholder="Adhérent">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">plafond : </label>
+                            </div>
+                            <div class="col-sm-9">
+                              <nb-select fullWidth selected="1">
+                                <nb-option value="1">Option 1</nb-option>
+                                <nb-option value="2">Option 2</nb-option>
+                              </nb-select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">situation d'adhesion :
+                              </label>
+                            </div>
+                            <div class="col-sm-9">
+                              <nb-select fullWidth selected="1">
+                                <nb-option value="1">Option 1</nb-option>
+                                <nb-option value="2">Option 2</nb-option>
+                              </nb-select>
+                            </div>
+                          </div>
+
+
+
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label"> date debut pristation
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" placeholder="date debut pristation">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">quality : </label>
+                            </div>
+                            <div class="col-sm-9">
+                              <nb-select fullWidth selected="1">
+                                <nb-option value="1">pére</nb-option>
+                                <nb-option value="2">mere</nb-option>
+                                <nb-option value="3">conjoint</nb-option>
+                                <nb-option value="4">enfants</nb-option>
+                              </nb-select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">nom & prenom :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="text" nbInput fullWidth status="success" placeholder="nom & prenom">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-3">
+                              <label for="inputEmail1" class="label col-sm-3col-form-label">date situation adhesion
+                                :</label>
+                            </div>
+                            <div class="col-sm-9">
+                              <input type="date" nbInput fullWidth status="success"
+                                placeholder="date situation adhesion">
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </nb-card-body>
+                  </nb-card>
+                  <nb-card>
+                    <nb-card-header>Données profisionnel </nb-card-header>
+                    <nb-card-body>
+
+
+
+
+                      <div class="form-group row">
+                        <div class="col-3">
+
+                          <label for="inputEmail1" class="label col-sm-3col-form-label">date position:</label>
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="date" nbInput fullWidth status="success" placeholder="date position">
+                        </div>
+                      </div>
+
+
+                    </nb-card-body>
+                  </nb-card>
+                  <nb-card>
+                    <nb-card-header>Données securite social :</nb-card-header>
+                    <nb-card-body>
+
+                      <nb-checkbox status="success">APCI </nb-checkbox>
+                    </nb-card-body>
+                  </nb-card>
+                </div>
+
+                <button nbButton (click)="ajouter = false">valider</button>
+                <button nbButton [routerLink]="['/pages/legend-chart']">annuler</button>
+
+              </div>
+
+              <!-- <button nbButton [routerLink]="['/pages/earning-chart']">ajouter</button> -->
+            </div>
+
+          </nb-card-body>
+        </nb-card>
+
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+      <nb-step [label]="labelFive">
+        <ng-template #labelFive>pieces justificatives</ng-template>
+
+        <div class="form-group row">
+          <label for="inputEmail1" class="label col-sm-3col-form-label">Nature : </label>
+          <div class="col-md-6">
+            <nb-select fullWidth selected="1">
+              <nb-option value="1">Option 1</nb-option>
+              <nb-option value="2">Option 2</nb-option>
+            </nb-select>
+          </div>
+          <div class="col-md-6">
+
+          </div>
+        </div>
+
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+
+      </nb-step>
+    </nb-stepper>
   </nb-card-body>
 </nb-card>

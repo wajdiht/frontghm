@@ -1,53 +1,55 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { Temperature, TemperatureHumidityData } from '../../../@core/data/temperature-humidity';
-import { takeWhile } from 'rxjs/operators';
-import { forkJoin } from 'rxjs';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PersonService } from '../../../person.service';
 
 @Component({
   selector: 'ngx-temperature',
   styleUrls: ['./temperature.component.scss'],
   templateUrl: './temperature.component.html',
 })
-export class TemperatureComponent implements OnDestroy {
-
-  private alive = true;
-
-  temperatureData: Temperature;
-  temperature: number;
-  temperatureOff = false;
-  temperatureMode = 'cool';
-
-  humidityData: Temperature;
-  humidity: number;
-  humidityOff = false;
-  humidityMode = 'heat';
-
-  theme: any;
-  themeSubscription: any;
-
-  constructor(private themeService: NbThemeService,
-              private temperatureHumidityService: TemperatureHumidityData) {
-    this.themeService.getJsTheme()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(config => {
-      this.theme = config.variables.temperature;
-    });
-
-    forkJoin(
-      this.temperatureHumidityService.getTemperatureData(),
-      this.temperatureHumidityService.getHumidityData(),
-    )
-      .subscribe(([temperatureData, humidityData]: [Temperature, Temperature]) => {
-        this.temperatureData = temperatureData;
-        this.temperature = this.temperatureData.value;
-
-        this.humidityData = humidityData;
-        this.humidity = this.humidityData.value;
-      });
+export class TemperatureComponent   {
+  ajouterAddress = false;
+  ajouterContact = false;
+  ajouterRib = false;
+  BankAccount :any ={ "orderNumber": "", "bankName": "", "ribNumber": "","currency": "", "agency": "", "windowNumber":"" ,"ribKey": "", "ribType": "", "accountNumber":"","locality": "","agencyAddress": "" }
+  contact : any={ "email": "", "mobilePhoneNumber": "", "landlineNumber": "" }
+  address: any ={ "street": "", "city": "", "state": "", "zip": "" }
+  personId = localStorage.getItem('personId');
+  Member :any ={ "membershipCodeNumber": "", "membershipDate": "", "membershipExpiryDate": "","parentCompany": "", "subscriptionDate": "", "mainContact":"" ,"patterns": "", "isVIP": "" }
+  personSave: any = { "personType": "LIBERAL_PERSON", "policyNumber": "", "firstName": "", "lastName": "", "nationality": "","identityDocumentNumber": "", "identityDocumentIssueDate": "", "identityDocumentType": "", "dateOfBirth": "", "civilStatus": "","vitalStatus": "", "cityOfBirth": "", "maidenName": "","gender": "", "countryOfBirth":"", "stateOfBirth": "", "effectiveDate": "", "isResident": "" };
+  constructor(private fb: FormBuilder,private router: Router, private PersonService: PersonService) {
   }
-
-  ngOnDestroy() {
-    this.alive = false;
-  }
+addPerson() {
+    this.PersonService.addPerson(this.personSave).subscribe((newPersonID) => {
+      localStorage.setItem('personId',newPersonID );
+      this.personId=newPersonID
+      console.log(newPersonID);     
+});
 }
+addAddress() {
+  console.log(this.personId , this.address)
+    this.PersonService.addAddress(this.personId,this.address).subscribe(() => {
+    console.log('Address added successfully.');
+});
+}
+addContact() {
+  console.log(this.personId , this.contact)
+    this.PersonService.addContact(this.personId,this.contact).subscribe(() => {
+    console.log('Contact added successfully.');
+});
+}
+addRib() {
+  console.log(this.personId , this.BankAccount)
+    this.PersonService.addBankAccount(this.personId,this.BankAccount).subscribe(() => {
+    console.log('Rib added successfully.');
+    window.location.reload();
+    localStorage.clear;
+});
+}
+
+
+
+  }
+
+
