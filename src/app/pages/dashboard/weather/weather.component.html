@@ -4,17 +4,18 @@
         <nb-tabset>
           <nb-tab tabTitle="general">
             <nb-card>
-              <nb-card-header>Données de la police </nb-card-header>
+              <nb-card-header class="text-white" style="background: rgb(86,13,110);
+              background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);">Données de la Police </nb-card-header>
               <nb-card-body>
                 <div class="row">
                   <div class="col-md-6">
   
                     <div class="form-group row">
                       <div class="col-3">
-                        <label  class="label col-sm-3col-form-label"  >N° police :</label>
+                        <label  class="label col-sm-3col-form-label"  >N°police :</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" [(ngModel)]="personSave.policyNumber" nbInput fullWidth status="success" placeholder="N° police">
+                        <input type="text" [(ngModel)]="personSave.policyNumber" nbInput fullWidth status="" placeholder="N° police">
                       </div>
                     </div>
                   </div>
@@ -23,7 +24,8 @@
             </nb-card>
   
             <nb-card>
-              <nb-card-header>Données D'Identification </nb-card-header>
+              <nb-card-header class="text-white" style="background: rgb(86,13,110);
+              background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données D'Identification </nb-card-header>
               <nb-card-body>
                 <div class="row">
                   <div class="col-md-6">
@@ -32,28 +34,28 @@
   
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label" >nom:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label" >Nom:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput [(ngModel)]="personSave.firstName" fullWidth status="success" placeholder="nom">
+                        <input type="text" nbInput [(ngModel)]="personSave.firstName" fullWidth status="" placeholder="nom">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label" >nationality:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label" >Nationality:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput fullWidth [(ngModel)]="personSave.nationality" status="success" placeholder="nationality">
+                        <input type="text" nbInput fullWidth [(ngModel)]="personSave.nationality" status="" placeholder="nationality">
                       </div>
                     </div>
   
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">type piece Identification:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type Piece D'identification:</label>
                       </div>
                       <div class="col-sm-9">
-                        <nb-select [(ngModel)]="personSave.identityDocumentType" fullWidth selected="PASSPORT">
+                        <nb-select status="" [(ngModel)]="personSave.identityDocumentType" fullWidth selected="PASSPORT">
                           <nb-option value="PASSPORT">Passport</nb-option>
                           <nb-option value="ID">Cin</nb-option>
                         </nb-select>
@@ -61,18 +63,18 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">N° piece d'dentification:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">N°piece D'identification:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput fullWidth status="success"  [(ngModel)]="personSave.identityDocumentNumber" placeholder="N° piece d'dentification">
+                        <input type="text" nbInput fullWidth status=""  [(ngModel)]="personSave.identityDocumentNumber" placeholder="N° piece d'dentification">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label"> Date piece d'dentification:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Date Piece D'identification:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="date" nbInput fullWidth status="success" [(ngModel)]="personSave.identityDocumentIssueDate" placeholder="Date piece d'dentification">
+                        <input type="date" nbInput fullWidth status="" [(ngModel)]="personSave.identityDocumentIssueDate" placeholder="Date piece d'dentification">
                       </div>
                     </div>
   
@@ -85,10 +87,10 @@
                    
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">prenom:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Prenom:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" [(ngModel)]="personSave.lastName" nbInput fullWidth status="success" placeholder="prenom">
+                        <input type="text" [(ngModel)]="personSave.lastName" nbInput fullWidth status="" placeholder="prenom">
                       </div>
                     </div>
   
@@ -99,25 +101,26 @@
               </nb-card-body>
             </nb-card>
             <nb-card>
-              <nb-card-header>Autre Information </nb-card-header>
+              <nb-card-header class="text-white" style="background: rgb(86,13,110);
+              background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Autre Information </nb-card-header>
               <nb-card-body>
                 <div class="row">
                   <div class="col-md-6">
   
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">date naissance:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Naissance:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="date" [(ngModel)]="personSave.dateOfBirth" nbInput fullWidth status="success" placeholder="date naissance">
+                        <input type="date" [(ngModel)]="personSave.dateOfBirth" nbInput fullWidth status="" placeholder="date naissance">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">situation familliale:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation Familliale:</label>
                       </div>
                       <div class="col-sm-9">
-                        <nb-select [(ngModel)]="personSave.civilStatus" fullWidth selected="MARRIED">
+                        <nb-select status="" [(ngModel)]="personSave.civilStatus" fullWidth selected="MARRIED">
                           <nb-option value="MARRIED">MARIÉE </nb-option>
                           <nb-option value="DIVORCED">DIVORCÉE </nb-option>
                           <nb-option value="SINGLE">SEULE </nb-option>
@@ -128,11 +131,11 @@
                     </div>
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">situation vie:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation Vie:</label>
                       </div>
                       <div class="col-sm-9">
-                        <nb-select [(ngModel)]="personSave.vitalStatus" fullWidth selected="DECEASED">
-                          <nb-option value="DECEASED">DÉFUNTE</nb-option>
+                        <nb-select status="" [(ngModel)]="personSave.vitalStatus" fullWidth selected="DECEASED">
+                          <nb-option value="DECEASED">DÉFUNT(e)</nb-option>
                           <nb-option value="ALIVE">VIVANTE</nb-option>
                         </nb-select>
                       </div>
@@ -140,33 +143,30 @@
                     
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">ville de naissance:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Ville de Naissance:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" [(ngModel)]="personSave.cityOfBirth" nbInput fullWidth status="success" placeholder="ville de naissance">
+                        <input type="text" [(ngModel)]="personSave.cityOfBirth" nbInput fullWidth status="" placeholder="ville de naissance">
                       </div>
                     </div>
-
-
-                    
                     <div class="form-group row">
                       <div class="col-3">
   
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">Nom de jeune fille:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom de Jeune Fille:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput [(ngModel)]="personSave.maidenName" fullWidth status="success" placeholder="Nom de jeune fille">
+                        <input type="text" nbInput [(ngModel)]="personSave.maidenName" fullWidth status="" placeholder="Nom de jeune fille">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group row">
                       <div class="col-3">
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">sexe:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Sexe:</label>
                       </div>
                       <div class="col-sm-9">
-                        <nb-select  [(ngModel)]="personSave.gender" fullWidth selected="MALE">
-                          <nb-option value="MALE">MÂLE </nb-option>
+                        <nb-select status="" [(ngModel)]="personSave.gender" fullWidth selected="MALE">
+                          <nb-option value="MALE">homme </nb-option>
                           <nb-option value="FEMALE">FEMME</nb-option>
                           <nb-option value="NON_CONFORMING">NON_CONFORME</nb-option>
                         </nb-select>
@@ -175,20 +175,20 @@
                     <div class="form-group row">
                       <div class="col-3">
   
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">date d'effet FS:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date d'effet FS:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="date" nbInput [(ngModel)]="personSave.effectiveDate" fullWidth status="success" placeholder="date d'effet FS">
+                        <input type="date" nbInput [(ngModel)]="personSave.effectiveDate" fullWidth status="" placeholder="date d'effet FS">
                       </div>
                     </div>
                     
                     <div class="form-group row">
                       <div class="col-3">
   
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">pays de naissance :</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Pays de Naissance :</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput [(ngModel)]="personSave.countryOfBirth" fullWidth status="success" placeholder="pays de naissance">
+                        <input type="text" nbInput [(ngModel)]="personSave.countryOfBirth" fullWidth status="" placeholder="pays de naissance">
                       </div>
                     </div>
                  
@@ -196,30 +196,25 @@
                     <div class="form-group row">
                       <div class="col-3">
   
-                        <label for="inputEmail1" class="label col-sm-3col-form-label">Gouv de naissance:</label>
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Gouv de Naissance:</label>
                       </div>
                       <div class="col-sm-9">
-                        <input type="text" nbInput [(ngModel)]="personSave.stateOfBirth" fullWidth status="success" placeholder="Gouv de naissance">
+                        <input type="text" nbInput [(ngModel)]="personSave.stateOfBirth" fullWidth status="" placeholder="Gouv de naissance">
                       </div>
                     </div>
-                    <nb-checkbox [(ngModel)]="personSave.isResident" status="success">Residance </nb-checkbox>
+                    <nb-checkbox [(ngModel)]="personSave.isResident" status="">Residance </nb-checkbox>
                   </div>
                 </div>
   
   
               </nb-card-body>
             </nb-card>
-            <nb-card>
-              <nb-card-header>Rattachment :</nb-card-header>
-              <nb-card-body>
-  
-                <nb-checkbox  status="success">photo </nb-checkbox>
-              </nb-card-body>
-            </nb-card>
-  
-            <button nbButton (click)="addPerson()">valider</button>
-            <button nbButton>annuler</button>
-  
+           
+         <div class="row">
+            <button shape="round" style="font-size: 16px;" status="primary" nbButton (click)="addPerson()">Valider</button>
+            <span style="width:25px;"></span>
+            <button shape="round" style="font-size: 16px;" status="primary" nbButton>Annuler</button>
+          </div>
   
   
           </nb-tab>
@@ -228,37 +223,40 @@
             <div class="row ">
               <div class="col-10"></div>
               <div class="col-2">
-                <button nbButton (click)=" ajouterContact = true" *ngIf="! ajouterContact">ajouter</button>
+                <button nbButton shape="round" style="font-size: 16px;" status="primary" (click)=" ajouterContact = true" *ngIf="! ajouterContact">ajouter</button>
               </div>
             </div>
             <div *ngIf=" ajouterContact">
   
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">Email:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">Email:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="email" nbInput fullWidth status="success" [(ngModel)]="contact.email" placeholder="Email">
+                  <input type="email" nbInput fullWidth status="" [(ngModel)]="contact.email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">N° Mobile:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° Mobile:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth status="success" [(ngModel)]="contact.mobilePhoneNumber" placeholder="N° Mobile">
+                  <input type="text" nbInput fullWidth status="" [(ngModel)]="contact.mobilePhoneNumber" placeholder="N° Mobile">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">N° Fix:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° Fix:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth status="success" [(ngModel)]="contact.landlineNumber" placeholder="N° Fix">
+                  <input type="text" nbInput fullWidth status="" [(ngModel)]="contact.landlineNumber" placeholder="N° Fix">
                 </div>
               </div>
-              <button nbButton (click)="addContact()" (click)="ajouterContact = false">Valider</button>
-              <button nbButton>Annuler</button>
+              <div class="row">
+              <button nbButton shape="round" style="font-size: 16px;" status="primary" (click)="addContact()" (click)="ajouterContact = false">Valider</button>
+              <span style="width:25px;"></span>
+              <button shape="round" style="font-size: 16px;" status="primary" nbButton>Annuler</button>
+              </div>
             </div>
   
   
@@ -267,45 +265,49 @@
             <div class="row ">
               <div class="col-10"></div>
               <div class="col-2">
-                <button nbButton (click)="ajouterAddress = true" *ngIf="!ajouterAddress">ajouter</button>
+                <button nbButton shape="round" style="font-size: 16px;" status="primary" (click)="ajouterAddress = true" *ngIf="!ajouterAddress">ajouter</button>
               </div>
             </div>
             <div *ngIf="ajouterAddress">
   
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">Rue:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">Rue:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth  status="success" placeholder="Rue"  [(ngModel)]="address.street">
+                  <input type="text" nbInput fullWidth  status="" placeholder="Rue"  [(ngModel)]="address.street">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">Gouvernorat:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">Gouvernorat:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth  status="success" placeholder="Gouvernorat" [(ngModel)]="address.state">
+                  <input type="text" nbInput fullWidth  status="" placeholder="Gouvernorat" [(ngModel)]="address.state">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label"> ville:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label"> ville:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth  status="success" placeholder="ville" [(ngModel)]="address.city">
+                  <input type="text" nbInput fullWidth  status="" placeholder="ville" [(ngModel)]="address.city">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">Code postal:</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">Code postal:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput  fullWidth status="success" placeholder="Code postal"  [(ngModel)]="address.zip">
+                  <input type="text" nbInput  fullWidth status="" placeholder="Code postal"  [(ngModel)]="address.zip">
                 </div>
+
               </div>
-              <button nbButton (click)="addAddress()" (click)="ajouterAddress = false">Valider</button>
-              <button nbButton>Annuler</button>
+              <div class="row">
+              <button shape="round" style="font-size: 16px;" status="primary" nbButton (click)="addAddress()" (click)="ajouterAddress = false">Valider</button>
+              <span style="width:25px;"></span>
+              <button shape="round" style="font-size: 16px;" status="primary" nbButton>Annuler</button>
+            </div>
             </div>
 
           </nb-tab>
@@ -313,7 +315,7 @@
             <div class="row ">
               <div class="col-10"></div>
               <div class="col-2">
-                <button nbButton (click)="ajouterRib = true" *ngIf="!ajouterRib">ajouter</button>
+                <button nbButton shape="round" style="font-size: 16px;" status="primary" (click)="ajouterRib = true" *ngIf="!ajouterRib">ajouter</button>
               </div>
             </div>
             <div *ngIf="ajouterRib">
@@ -323,28 +325,28 @@
                     <div class="col-6">
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">N° d'ordre:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° d'ordre:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.orderNumber" placeholder="N° d'ordre">
+                      <input type="number" nbInput fullWidth status="" [(ngModel)]="BankAccount.orderNumber" placeholder="N° d'ordre">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Type de RIB:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type de RIB:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribType" placeholder="Type de RIB">
+                      <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.ribType" placeholder="Type de RIB">
                     </div>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Devise:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Devise:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.currency" placeholder="Devise">
+                      <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.currency" placeholder="Devise">
                     </div>
                   </div>
                   </div>
@@ -359,52 +361,52 @@
                   
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">RIB:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">RIB:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribNumber" placeholder="RIB">
+                      <input type="number" nbInput fullWidth status="" [(ngModel)]="BankAccount.ribNumber" placeholder="RIB">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Banque:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Banque:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.bankName" placeholder="Banque">
+                      <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.bankName" placeholder="Banque">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Compte:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Compte:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.accountNumber" placeholder="Compte">
+                      <input type="number" nbInput fullWidth status="" [(ngModel)]="BankAccount.accountNumber" placeholder="Compte">
                     </div>
                   </div>
                     </div>
                     <div class="col-6">
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Localisation:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Localisation:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.locality" placeholder="Localisation">
+                      <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.locality" placeholder="Localisation">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Clè:</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Clè:</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="number" nbInput fullWidth status="success" [(ngModel)]="BankAccount.ribKey" placeholder="Clè">
+                      <input type="number" nbInput fullWidth status="" [(ngModel)]="BankAccount.ribKey" placeholder="Clè">
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="col-3">
-                      <label for="inputEmail1" class="label col-sm-3col-form-label">Address de l'agence :</label>
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">Address de l'agence :</label>
                     </div>
                     <div class="col-sm-9">
-                      <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.agencyAddress" placeholder="Address de l'agence">
+                      <input type="text" nbInput fullWidth status="primary" [(ngModel)]="BankAccount.agencyAddress" placeholder="Address de l'agence">
                     </div>
                   </div>
                 </div>
@@ -419,21 +421,24 @@
                   <label  class="label col-sm-3col-form-label"> Agence:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.agency" placeholder="Agence">
+                  <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.agency" placeholder="Agence">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-3">
-                  <label for="inputEmail1" class="label col-sm-3col-form-label">Guichet :</label>
+                  <label style="font-size: 14px;" class="label col-sm-3col-form-label">Guichet :</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" nbInput fullWidth status="success" [(ngModel)]="BankAccount.windowNumber" placeholder="Guichet">
+                  <input type="text" nbInput fullWidth status="" [(ngModel)]="BankAccount.windowNumber" placeholder="Guichet">
                 </div>
               </div>
                 </nb-card-body>
               </nb-card>
-                  <button nbButton (click)="addRib()" (click)="ajouterRib = false">Valider</button>
-                  <button nbButton>Annuler</button>
+              <div class="row">
+                  <button shape="round" style="font-size: 16px;" status="primary" nbButton (click)="addRib()" (click)="ajouterRib = false">Valider</button>
+                  <span style="width:25px;"></span>
+                  <button shape="round" style="font-size: 16px;" status="primary" nbButton>Annuler</button>
+            </div>
             </div>
           </nb-tab>
         </nb-tabset>

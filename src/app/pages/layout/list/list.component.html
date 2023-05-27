@@ -1,26 +1,212 @@
-<div class="lists row">
-  <div class="col-md-12 col-lg-6 col-xxxl-6">
-    <nb-card class="list-card">
-      <nb-card-header>Some Fruits</nb-card-header>
-      <nb-card-body>
-        <nb-list>
-          <nb-list-item *ngFor="let fruit of fruits">
-            {{ fruit }}
-          </nb-list-item>
-        </nb-list>
-      </nb-card-body>
-    </nb-card>
-  </div>
 
-  <div class="col-md-12 col-lg-6 col-xxxl-6">
-    <nb-card class="list-card" size="small">
-      <nb-card-header>Users</nb-card-header>
-      <nb-list>
-        <nb-list-item *ngFor="let user of users">
-          <nb-user [name]="user.name" [title]="user.title">
-          </nb-user>
-        </nb-list-item>
-      </nb-list>
-    </nb-card>
-  </div>
-</div>
+<nb-card >
+   <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" > Les Demande RIB </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Request_Comment :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_comment}}</strong> -->
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Request_Time:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_time}}</strong> -->
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Request_Type :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_type}}</strong> -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Status:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.status}}</strong> -->
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="form-group row">
+                  <div class="col-3">
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">quality : </label>
+                  </div>
+                  <div class="col-sm-9">
+
+
+                      <strong>{{benefeciary.quality == 'FATHER' ? 'père' : benefeciary.quality == 'MOTHER' ? 'mère' : benefeciary.quality == 'SPOUSE' ? 'conjoint' : benefeciary.quality == 'CHILD' ? 'enfant':benefeciary.quality}}</strong>
+    </div>
+              </div> -->
+
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-9"></div>
+            <div class="col-3">
+                <button nbButton hero style="font-size: 16px;" status="primary" (click)=" ajouterAddress = true" *ngIf="! ajouterAddress">Detail</button>
+
+            </div>
+        </div>
+        <div *ngIf=" ajouterAddress">
+            <nb-card>
+                <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" > Demande Adresses </nb-card-header>
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Account_Number :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong >{{ad.city}}</strong> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Agency
+                                        :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_comment}}</strong> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Agency_Address:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_time}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Bank_Name
+                                        :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_type}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Currency :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.state}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Locality:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.status}}</strong> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Order_Number :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.street}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Rib_key:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.to_email}}</strong> -->
+                                </div>
+                            </div>
+                     <div class="form-group row">
+                      <div class="col-3">
+                          <label style="font-size: 14px;" class="label col-sm-3col-form-label">Rib_Number : </label>
+                      </div>
+                      <div class="col-sm-9">
+    
+    
+                          <!-- <strong>{{benefeciary.quality == 'FATHER' ? 'père' : benefeciary.quality == 'MOTHER' ? 'mère' : benefeciary.quality == 'SPOUSE' ? 'conjoint' : benefeciary.quality == 'CHILD' ? 'enfant':benefeciary.quality}}</strong> -->
+    
+    
+    
+    
+                      </div>
+                      </div> 
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Window_Number:</label>
+                                </div>
+                                <div class="col-sm-9">
+
+
+                                    <!-- <strong>{{ad.user_id}}</strong> -->
+
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Rib_Type:</label>
+                                </div>
+                                <div class="col-sm-9">
+
+
+                                    <!-- <strong>{{ad.zip}}</strong> -->
+
+
+                                </div>
+                            </div>
+                            <button nbButton (click)=" ajouterAddress = true" *ngIf="! ajouterAddress">Detail</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-10"></div>
+                     <div class="col-2">
+                <div class="row">
+                    <button nbButton hero status="primary" style="font-size: 16px;"  (click)=" ajouterAddress = false" >Valider</button>
+                    <span style="width:25px;"></span>
+                    <button nbButton hero status="primary"  style="font-size: 16px;" (click)=" ajouterAddress = false" >Annuler</button>
+                    </div>
+                </div>
+                </div>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+    </nb-card-body>
+</nb-card>

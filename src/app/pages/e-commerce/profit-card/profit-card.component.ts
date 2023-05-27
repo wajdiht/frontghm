@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonService } from '../../../person.service';
@@ -16,22 +16,43 @@ export class ProfitCardComponent {
   dateeFiltre:Date;
   filteredcontracts: any[];
   filteredcontract:any[];
+  situationContrat:string;
+  birthdaydate:string;
   c :any[] ;
   constructor( private fb: FormBuilder,private router: Router,private personService: PersonService) {
     // this.contracts=this.getcontracts()
     // this.contracts;
     this.filteredcontracts = this.filteredContracts()
   }
+  
+  
   getcontracts() {
     this.personService.getcontracts()
      .subscribe(contracts => {
       this.contracts = contracts;
-     // console.loog('contracts: ', this.filteredcontracts)
+      
+   // console.loog('contracts: ', this.filteredcontracts)
+    //  if(contracts.contractSituation == 'CANCELLED'){
+    //   this.situationContrat='Annulé'
+    //  }else if(contracts.contractSituation == 'IN_PROGRESS'){
+    //   this.situationContrat='En cours'
+    //  } else if(contracts.contractSituation == 'TERMINATED'){
+    //   this.situationContrat='Terminé'
+    //  }else{
+    //   this.situationContrat='Non Signé'
+    //  }
+    //  this.birthdaydate = contracts[contracts].birthDate;
+    //  const date = new Date(this.birthdaydate);
+    //  const datePipe = new DatePipe('en-US');
+
+    
     });
 
+
   }
-setOriginalData(){
-}
+
+
+
   filteredContracts (){
    //let filteredcontracts: any = this.filteredcontracts;
      let contract: any

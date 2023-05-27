@@ -1,146 +1,210 @@
-<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
-  <nb-card-body>
-    <nb-stepper orientation="horizontal">
-      <nb-step [label]="labelOne">
-        <ng-template #labelOne>First step</ng-template>
-        <h3>Step content #1</h3>
 
-        <h3>Step content #1</h3>
-        <button nbButton disabled nbStepperNext>prev</button>
-        <button nbButton nbStepperNext>next</button>
-      </nb-step>
-      <nb-step [label]="labelTwo">
-        <ng-template #labelTwo>Second step</ng-template>
-        <h3>Step content #2</h3>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
-      </nb-step>
-      <nb-step label="Third step">
-        <h3>Step content #3</h3>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton nbStepperNext>next</button>
-      </nb-step>
-      <nb-step [label]="labelFour">
-        <ng-template #labelFour>Fourth step</ng-template>
-        <h3>Step content #4</h3>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton disabled nbStepperNext>next</button>
-      </nb-step>
-      
-    </nb-stepper>
-  </nb-card-body>
-</nb-card>
+<nb-card >
+    <nb-card-header> Les Adresses </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_comment :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_comment}}</strong> -->
+                    </div>
+                </div>
 
-<div class="steppers-container row">
-  <div class="col-md-12 col-lg-6 col-xxxl-6">
-    <nb-card>
-      <nb-card-body>
-        <nb-stepper #stepper>
-          <nb-step [stepControl]="firstForm" label="First step">
-            <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
-              <p class="lorem">
-                Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle,
-                my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
-              </p>
-              <div class="input-group">
-                <input type="text" placeholder="Enter your name" class="form-control" formControlName="firstCtrl"
-                       [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
-              </div>
-              <button nbButton nbStepperNext>next</button>
-            </form>
-          </nb-step>
-          <nb-step [stepControl]="secondForm" label="Second step">
-            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
-              <p class="lorem">
-                Pellentesque we gonna chung tortor.
-                Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home g-dizzle tempus tempor.
-                Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
-              </p>
-              <div class="input-group">
-                <input type="text" placeholder="Enter favorite movie" class="form-control" formControlName="secondCtrl"
-                       [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
-              </div>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>next</button>
-            </form>
-          </nb-step>
-          <nb-step [stepControl]="thirdForm" label="Third step">
-            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
-              <p class="lorem">
-                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst. Check it out pot.
-              </p>
-              <div class="input-group">
-                <input type="text" placeholder="Enter something" class="form-control" formControlName="thirdCtrl"
-                       [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
-              </div>
-              <button nbButton nbStepperPrevious>prev</button>
-              <button nbButton nbStepperNext>Confirm</button>
-            </form>
-          </nb-step>
-          <nb-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
-            <div class="step-container">
-              <h3>Wizard completed!</h3>
-              <button nbButton (click)="stepper.reset()">Try again</button>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_time:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_time}}</strong> -->
+                    </div>
+                </div>
+
+
             </div>
-          </nb-step>
-        </nb-stepper>
-      </nb-card-body>
-    </nb-card>
-  </div>
 
-  <div class="col-md-12 col-lg-6 col-xxxl-6">
-    <nb-card size="medium">
-      <nb-card-body>
-        <nb-stepper orientation="vertical">
-          <nb-step label="First step">
-            <h3>Step content #1</h3>
-            <p class="lorem">
-              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum bibendum,
-              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
-              viverra ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent metus turpis, commodo vel
-              placerat quis, lobortis in ligula.
-            </p>
-            <button nbButton disabled nbStepperNext>prev</button>
-            <button nbButton nbStepperNext>next</button>
-          </nb-step>
-          <nb-step label="Second step">
-            <h3>Step content #2</h3>
-            <p class="lorem">
-              Curabitur luctus mattis risus nec condimentum. Donec at dui turpis. Sed vehicula fringilla rutrum. Nullam
-              sed ornare magna. Mauris vitae laoreet diam. Mauris fermentum ligula at lacinia semper. Nulla placerat dui
-              eu sapien pellentesque, eu placerat leo luctus. Cras pharetra blandit fermentum.
-            </p>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>next</button>
-          </nb-step>
-          <nb-step label="Third step">
-            <h3>Step content #3</h3>
-            <p class="lorem">
-              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum bibendum,
-              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
-              viverra ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent metus turpis, commodo vel
-              placerat quis, lobortis in ligula.
-            </p>
-            <p class="lorem">
-              Curabitur luctus mattis risus nec condimentum. Donec at dui turpis. Sed vehicula fringilla rutrum. Nullam
-              sed ornare magna. Mauris vitae laoreet diam. Mauris fermentum ligula at lacinia semper. Nulla placerat dui
-              eu sapien pellentesque, eu placerat leo luctus. Cras pharetra blandit fermentum.
-            </p>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton nbStepperNext>next</button>
-          </nb-step>
-          <nb-step label="Fourth step">
-            <h3>Step content #4</h3>
-            <p class="lorem">
-              Proin varius accumsan semper. Praesent consequat tincidunt sagittis. Curabitur egestas sem a ipsum bibendum,
-              sit amet fringilla orci efficitur. Nam bibendum lectus ut viverra tristique. Fusce eu pulvinar magna, quis
-              viverra ex.
-            </p>
-            <button nbButton nbStepperPrevious>prev</button>
-            <button nbButton disabled nbStepperNext>next</button>
-          </nb-step>
-        </nb-stepper>
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div>
+            <div class="col-md-6">
+
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_type :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.request_type}}</strong> -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">status:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <!-- <strong>{{ad.status}}</strong> -->
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="form-group row">
+                  <div class="col-3">
+                      <label style="font-size: 14px;" class="label col-sm-3col-form-label">quality : </label>
+                  </div>
+                  <div class="col-sm-9">
+
+
+                      <strong>{{benefeciary.quality == 'FATHER' ? 'père' : benefeciary.quality == 'MOTHER' ? 'mère' : benefeciary.quality == 'SPOUSE' ? 'conjoint' : benefeciary.quality == 'CHILD' ? 'enfant':benefeciary.quality}}</strong>
+    </div>
+              </div> -->
+
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-9"></div>
+            <div class="col-3">
+                <button nbButton hero status="primary" (click)=" ajouterAddress = true" *ngIf="! ajouterAddress">Detail</button>
+
+            </div>
+        </div>
+        <div *ngIf=" ajouterAddress">
+            <nb-card>
+                <nb-card-header> demande Adresses </nb-card-header>
+                <nb-card-body>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">city :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong >{{ad.city}}</strong> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_comment
+                                        :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_comment}}</strong> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_time:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_time}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> request_type
+                                        :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.request_type}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">state :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.state}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">status:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.status}}</strong> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> street :</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.street}}</strong> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label"> to_email:</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <!-- <strong>{{ad.to_email}}</strong> -->
+                                </div>
+                            </div>
+                            <!-- <div class="form-group row">
+                      <div class="col-3">
+                          <label style="font-size: 14px;" class="label col-sm-3col-form-label">quality : </label>
+                      </div>
+                      <div class="col-sm-9">
+    
+    
+                          <strong>{{benefeciary.quality == 'FATHER' ? 'père' : benefeciary.quality == 'MOTHER' ? 'mère' : benefeciary.quality == 'SPOUSE' ? 'conjoint' : benefeciary.quality == 'CHILD' ? 'enfant':benefeciary.quality}}</strong>
+    
+    
+    
+    
+                      </div>
+                      </div> -->
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">user_id:</label>
+                                </div>
+                                <div class="col-sm-9">
+
+
+                                    <!-- <strong>{{ad.user_id}}</strong> -->
+
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">zip:</label>
+                                </div>
+                                <div class="col-sm-9">
+
+
+                                    <!-- <strong>{{ad.zip}}</strong> -->
+
+
+                                </div>
+                            </div>
+                            <button nbButton (click)=" ajouterAddress = true" *ngIf="! ajouterAddress">Detail</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-10"></div>
+                     <div class="col-2">
+                        <div class="row">
+                    <button nbButton hero status="primary"  (click)=" ajouterAddress = false" >Valider</button>
+                    <span style="width:25px;"></span>
+                    <button nbButton hero status="primary"  (click)=" ajouterAddress = false" >Annuler</button>
+                </div>
+                </div>
+                </div>
+                </nb-card-body>
+            </nb-card>
+
+        </div>
+
+    </nb-card-body>
+</nb-card>

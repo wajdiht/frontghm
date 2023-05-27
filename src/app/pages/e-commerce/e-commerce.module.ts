@@ -69,6 +69,9 @@ import { FiltreAdhesionPipe } from './profit-card/filtre-adhesion.pipe';
 import { FiltrePolicePipe } from './profit-card/filtre-police.pipe';
 import { FiltrestatuePipe } from './profit-card/filtrestatue.pipe';
 import { DateFiltrePipe } from './profit-card/date-filtre.pipe';
+import { UpdateComponent } from './update/update.component';
+import { DetailComponent } from './detail/detail.component';
+import { PersonComponent } from './person/person.component';
 
 @NgModule({
   imports: [
@@ -135,6 +138,9 @@ import { DateFiltrePipe } from './profit-card/date-filtre.pipe';
     FiltrePolicePipe,
     FiltrestatuePipe,
     DateFiltrePipe,
+    UpdateComponent,
+    DetailComponent,
+    PersonComponent,
   ],
   providers: [
     CountryOrdersMapService,

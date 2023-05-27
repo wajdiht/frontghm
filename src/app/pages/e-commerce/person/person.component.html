@@ -1,0 +1,495 @@
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Details Person </nb-card-header>
+    <nb-card-body>
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données police </nb-card-header>
+            <nb-card-body>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Numero Police:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{Person?.policyNumber}}</p>
+                    </div>
+                </div>
+            </nb-card-body></nb-card>
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données D'Identification </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">PersonType:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.personType == null ? '' : (Person.personType == 'PHYSICAL_PERSON' ? 'Person physique'
+                                    : (Person.personType == 'LIBERAL_PERSON' ? 'Person libiral'
+                                    : 'Person moral'))}}</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.firstName}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nationality:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.nationality}}</p>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">type Piece
+                                    Identification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.identityDocumentType == 'ID' ? 'Cin'
+                                    : 'Passport' }}</p>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Prenom:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.lastName}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° piece
+                                    d'dentification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.identityDocumentNumber}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Date Piece d'identification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{identityDocumentIssueDate }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Autre Information </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p> {{dateOfBirth }}</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation
+                                    Familliale:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.civilStatus== null ? ''  : (Person.civilStatus == 'MARRIED' ? 'MARIÉE'
+                                    : (Person.civilStatus == 'DIVORCED' ? 'DIVORCÉE'
+                                    : Person.civilStatus == 'SINGLE' ? 'SEULE'
+                                    : 'VEUVE'))}}</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation Vie:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.vitalStatus == 'ALIVE' ? 'vivant(e)'
+                                    : 'défunt(e)'}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Ville de
+                                    Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.cityOfBirth }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom de Jeune
+                                    Fille:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.nationality}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Sexe:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.gender== null ? '' : (Person.gender ==  'MALE' ? 'homme'
+                                    : (Person.gender == 'FEMALE' ? 'femme'
+                                    : ' non confirmé'))}}</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date d'effet FS:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{ effectiveDate }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Pays de Naissance
+                                    :</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.countryOfBirth}}</p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Gouv de Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.stateOfBirth}}</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Résident:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <p>{{Person?.isResident}}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button shape="round" size="small" style="font-size: 16px;" status="primary" (click)=" modifier = true" *ngIf="! modifier"
+                    nbButton>Modifier</button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+<div *ngIf=" modifier">
+
+    <nb-card>
+        <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Modifier </nb-card-header>
+            <nb-card-body>
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données D'identification </nb-card-header>
+            <nb-card-body>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">Numero Police:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" nbInput #policyNumberInput
+                            (input)="Person.policyNumber = policyNumberInput.value" value="{{Person?.policyNumber}}"
+                            fullWidth status="primary" placeholder="prenom">
+                    </div>
+                </div>
+            </nb-card-body></nb-card>
+
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données D'Identification </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom:</label>
+                            </div>
+                            <div class="col-sm-9">
+
+                                <input type="text" nbInput #firstNameInput
+                                    (input)="Person.firstName = firstNameInput.value" value="{{Person?.firstName}}"
+                                    fullWidth status="primary" placeholder="nom">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nationality:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput fullWidth #nationalityInput
+                                    (input)="Person.nationality = nationalityInput.value"
+                                    value="{{Person?.nationality}}" status="primary" placeholder="nationality">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type
+                                    Piece d'identification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <nb-select status="primary" [selected]="Person?.identityDocumentType"
+                                    (selectedChange)="Person.identityDocumentType = $event " fullWidth>
+                                    <nb-option value="PASSPORT">Passport</nb-option>
+                                    <nb-option value="ID">Cin</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° piece
+                                    d'identification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput fullWidth status="primary" nbInput
+                                    #identityDocumentNumberInput
+                                    (input)="Person.identityDocumentNumber = identityDocumentNumberInput.value"
+                                    value="{{Person?.identityDocumentNumber}}" placeholder="N° piece d'dentification">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Date Piece
+                                    D'identification:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="date" nbInput fullWidth status="primary" nbInput
+                                    #identityDocumentIssueDateInput
+                                    (input)="identityDocumentIssueDate = formatDates(identityDocumentIssueDateInput.value)"
+                                    value="{{formatDates(identityDocumentIssueDate)}}"
+                                    placeholder="Date piece d'dentification">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Prenom:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput #lastNameInput
+                                    (input)="Person.lastName = lastNameInput.value" value="{{Person?.lastName}}"
+                                    fullWidth status="primary" placeholder="prenom">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type Personne:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                    <nb-select status="primary" [selected]="Person?.personType"
+                                    (selectedChange)="Person.personType = $event " fullWidth>
+                                    <nb-option value="PHYSICAL_PERSON">personne physique</nb-option>
+                                    <nb-option value="LIBERAL_PERSON">person libiral</nb-option>
+                                    <nb-option value="MORAL_PERSON">person moral</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+        <nb-card>
+            <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Autre Information </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="date" #dateOfBirthInput
+                                    (input)="dateOfBirth = formatDates(dateOfBirthInput.value)"
+                                    value="{{ formatDates(dateOfBirth) }}" nbInput fullWidth status="primary"
+                                    placeholder="date naissance">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation
+                                    familliale:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <nb-select status="primary" [selected]="Person?.civilStatus"
+                                    (selectedChange)="Person.civilStatus = $event " fullWidth>
+                                    <nb-option value="MARRIED">MARIÉE </nb-option>
+                                    <nb-option value="DIVORCED">DIVORCÉE </nb-option>
+                                    <nb-option value="SINGLE">SEULE </nb-option>
+                                    <nb-option value="WIDOWED">VEUVE </nb-option>
+
+                                </nb-select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation Vie:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <nb-select status="primary" [selected]="Person?.vitalStatus"
+                                    (selectedChange)="Person.vitalStatus = $event " fullWidth>
+                                    <nb-option value="DECEASED">DÉFUNT(e)</nb-option>
+                                    <nb-option value="ALIVE">VIVANTE</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Ville de
+                                    Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" #cityOfBirthInput
+                                    (input)="Person.cityOfBirth = cityOfBirthInput.value"
+                                    value="{{Person?.cityOfBirth}}" nbInput fullWidth status="primary"
+                                    placeholder="ville de naissance">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom de jeune
+                                    Fille:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput #maidenNameInput
+                                    (input)="Person.maidenName = maidenNameInput.value" value="{{Person?.maidenName}}"
+                                    fullWidth status="primary" placeholder="Nom de jeune fille">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <div class="col-3">
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Sexe:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <nb-select status="primary" fullWidth [selected]="Person?.gender"
+                                    (selectedChange)="Person.gender = $event ">
+                                    <nb-option value="MALE">homme </nb-option>
+                                    <nb-option value="FEMALE">FEMME</nb-option>
+                                    <nb-option value="NON_CONFORMING">NON_CONFORME</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date d'effet FS:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="date" nbInput #effectiveDateInput
+                                    (input)="effectiveDate = formatDates(effectiveDateInput.value)"
+                                    value="{{ formatDates(effectiveDate) }}" fullWidth status="primary"
+                                    placeholder="date d'effet FS">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Pays de Naissance
+                                    :</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput #countryOfBirthInput
+                                    (input)="Person.countryOfBirth = countryOfBirthInput.value"
+                                    value="{{Person?.countryOfBirth}}" fullWidth status="primary"
+                                    placeholder="pays de naissance">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-3">
+
+                                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Gouv de Naissance:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" nbInput #stateOfBirthInput
+                                    (input)="Person.stateOfBirth = stateOfBirthInput.value"
+                                    value="{{Person?.stateOfBirth}}" fullWidth status="primary"
+                                    placeholder="Gouv de naissance">
+                            </div>
+                        </div>
+                        <nb-checkbox status="primary" (change)="Person.isResident = $event.target.checked"
+                            [(ngModel)]="Person.isResident">Residance</nb-checkbox>
+                    </div>
+                </div>
+
+            </nb-card-body>
+
+        </nb-card>
+        <div class="row">
+            <button shape="round" style="font-size: 16px;" size="small" status="primary" (click) = "formatting()" (click)="UpdatePerson()" (click)=" modifier = false" nbButton>Valider</button>
+            <span style="width:25px;"></span>
+            <button shape="round" style="font-size: 16px;" size="small" status="primary" (click)=" modifier = false" nbButton>Annuler</button>
+        </div>
+            </nb-card-body>
+        
+    </nb-card>
+</div>

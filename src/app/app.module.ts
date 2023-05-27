@@ -12,21 +12,39 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
+  NbAlertModule,
+  NbButtonModule,
+  NbCardModule,
   NbChatModule,
+  NbCheckboxModule,
   NbDatepickerModule,
   NbDialogModule,
+  NbInputModule,
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
 import { ListComponent } from './list/list.component';
+import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [AppComponent, ListComponent],
+  declarations: [AppComponent, ListComponent,LoginComponent],
   imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    NbAlertModule,
+    
+    NbButtonModule,
+    NbCheckboxModule,
     BrowserModule,
+    NbInputModule,
+    NbCardModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,

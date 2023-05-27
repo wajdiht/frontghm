@@ -21,7 +21,6 @@ export class ECommerceLegendChartComponent implements OnInit {
   person: any = [];
   beneficiary:any[];
   rib: any =[]
-  selectedFile: File;
   fullName:any;
   BeneficiaryId=localStorage.getItem('BeneficiaryId');
   MemberId = localStorage.getItem('MemberId');
@@ -38,12 +37,34 @@ export class ECommerceLegendChartComponent implements OnInit {
   Member :any ={ "membershipCodeNumber": "", "membershipDate": "", "membershipExpiryDate": "","parentCompany": "", "subscriptionDate": "", "mainContact":"" ,"patterns": "", "isVIP": "", "isCouple":"" }
   personSave: any ={"personType": "" ,"policyNumber": "","firstName": "","lastName": "","nationality": ""};
   Contract:any={"registrationNumber": "","contractSituation": "","contractSituationDate": ""};
+  selectedFile: File | undefined;
   constructor(private fb: FormBuilder,private router: Router,private personService: PersonService) {
   }
- 
-
-  onFileSelected(event): void {
+  onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
+  }
+
+  AddContractDocumentFileByContract(): void {
+    if (this.selectedFile) {
+      const ContractDocumentFile = {
+        fileName: this.selectedFile.name,
+        fileType: this.selectedFile.type,
+        fileSize: this.selectedFile.size,
+        fileContent: this.selectedFile,
+        uploadDate: new Date().toISOString(),
+        proofType: 'BANK_PROOF'
+      };
+      this.personService.AddContractDocumentFileByContract(this.ContractId, ContractDocumentFile).subscribe(
+        (response) => {
+          // Handle the response after successful file upload
+          console.log(response);
+        },
+        (error) => {
+          // Handle the error
+          console.error(error);
+        }
+      );
+    }
   }
   /*addContract() {
      console.log(this.id , this.Member)
@@ -180,7 +201,7 @@ export class ECommerceLegendChartComponent implements OnInit {
     )
   }
   ngOnInit() {
-
+console.log(this.ContractId)
     this.firstForm = this.fb.group({
       firstCtrl: ['', Validators.required],
     });

@@ -14,5 +14,4 @@ export class ECommerceComponent {
   toggleshowEarningCardComponent():void {
     this.showEarningCardComponent = !this.showEarningCardComponent;
   }
-
 }

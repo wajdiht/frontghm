@@ -1,0 +1,541 @@
+<ng-template #labelOne>Identification</ng-template>
+
+<nb-card>
+    <nb-card-header class="text-white"  style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);">Données d'Identification </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"   class="label col-sm-3col-form-label  " >N° d'adhesion :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{contracts.registrationNumber}}</p>
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Situation: </label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{situationContrat}}</p>
+
+
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date de Situation:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{contractSituationDate}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données de Tarification</nb-card-header>
+    <nb-card-body>
+        <div class="form-group row">
+            <div class="col-3">
+
+                <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Code Tarification:</label>
+            </div>
+            <div class="col-sm-9">
+
+                <p>{{pricingCode}}</p>
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+
+                <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Code Prestation</label>
+            </div>
+            <div class="col-sm-9">
+
+                <p>{{serviceCode}}</p>
+
+
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Commentaire & prestations</nb-card-header>
+    <nb-card-body>
+        <div class="form-group row">
+            <div class="col-3">
+                <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Commentaire : </label>
+            </div>
+            <div class="col-sm-9">
+                <p>{{comment}}</p>
+
+
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label for="inputEmail1"  style="font-size: 14px;"  class="label col-sm-3col-form-label">Type: </label>
+            </div>
+            <div class="col-sm-9">
+                <p>{{type}}</p>
+
+
+            </div>
+        </div>
+
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données Professional</nb-card-header>
+    <nb-card-body>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Position : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{position}}</p>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Salaire :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{salary}}</p>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Classe : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{classe}}</p>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Echelon : </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{echelon}}</p>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date fin cotisation :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{contributionEndDate}}</p>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Situatuin d'adhesion : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{situationAdhesion}}</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Position :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{positionDate}}</p>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Collége : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{college}}</p>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Catègorie : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{category}}</p>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Debut Cotisation :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{contributionStartDate}}</p>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Type de Remboursement : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{typeRemboursement}}</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);">Données Securite Social </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Matricule Cnam:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{contracts.member.socialSecurityData.cnamRegistrationNumber}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Filier : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{filier}}</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Matricule Cnss:</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{contracts.member.socialSecurityData.cnssRegistrationNumber}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Matricule Cnrps:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{contracts.member.socialSecurityData.cnrpsRegistrationNumber}}</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label"> APCI :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{isAPCI}}</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+<nb-card>
+    <nb-card-header  class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);">APCI</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-md-4">
+              
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date APCI :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{contracts.member.socialSecurityData.apci.dateAPCI}}</p>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Debut :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <p>{{contracts.member.socialSecurityData.apci.startDate}}</p>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">APCI Type : </label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{apciEnumType}}</p>
+
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Fin :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{contracts.member.socialSecurityData.apci.endDate}}</p>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Nom et Prenom :</label>
+                    </div>
+                    <div class="col-sm-9">
+
+
+                        <p>{{contracts.member.socialSecurityData.apci.name}}</p>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Expiration des Bons :</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>{{contracts.member.socialSecurityData.apci.expiryDate}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+<ng-template #labelFour> Beneficaire</ng-template>
+<nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);">Gestion Beneficaire</nb-card-header>
+    <nb-card-body>
+        <div class="row ">
+            <div class="col-10"></div>
+            <div class="col-2">
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+
+                <nb-card *ngFor="let benefeciary of beneficiaries">
+                    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données Personnel </nb-card-header>
+                    <nb-card-body>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">N° d'adhesion :</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p >{{benefeciary.numeroAdhesion}}</p>
+                                    </div>
+                                </div>
+
+                              
+
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label"> Adhérent:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                       <p>{{benefeciary.nomAdherent}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label"> Plafond :</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{benefeciary.plafond}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Situation
+                                            d'adhesion :</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{benefeciary.situationAdhesion}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date
+                                            Position:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{benefeciary.datePosition}}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Fin Prestation:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{benefeciary.dateFinPrestation}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Debut Prestation:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{benefeciary.dateDebutPrestation}}</p>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Qualité : </label>
+                                    </div>
+                                    <div class="col-sm-9">
+
+
+                                        <p>{{benefeciary.quality == 'FATHER' ? 'père' : benefeciary.quality == 'MOTHER' ? 'mère' : benefeciary.quality == 'SPOUSE' ? 'conjoint' : benefeciary.quality == 'CHILD' ? 'enfant':benefeciary.quality}}</p>
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Nom & Prenom
+                                            :</label>
+                                    </div>
+                                    <div class="col-sm-9">
+
+
+                                        <p>{{benefeciary.nomEtPrenom}}</p>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for="inputEmail1" style="font-size: 14px;"  class="label col-sm-3col-form-label">Date Situation
+                                            adhesion
+                                            :</label>
+                                    </div>
+                                    <div class="col-sm-9">
+
+
+                                        <p>{{benefeciary.dateAdhesion}}</p>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </nb-card-body>
+                </nb-card>
+                <nb-card>

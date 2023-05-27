@@ -1,5 +1,6 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { LoginComponent } from './login/login.component';
 import {
   NbAuthComponent,
   NbLoginComponent,
@@ -8,28 +9,29 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
-
 export const routes: Routes = 
 [
- 
+
+  { path:'login', component:LoginComponent},
+
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
 
- 
+
   {
     path: 'auth',
     component: NbAuthComponent,
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: LoginComponent,
       },
       {
         path: 'register',
@@ -49,14 +51,9 @@ export const routes: Routes =
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '',  redirectTo:'auth', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth' },
 ];
-
- 
-
-
-
 const config: ExtraOptions = {
   useHash: false,
 };

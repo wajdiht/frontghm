@@ -1,0 +1,788 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>Identification</ng-template>
+        <nb-card >
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données de la police</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Numero Police :</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="" placeholder="numero police">
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données d'Identification </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Matricule :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="" value={{contract?.member.membershipCodeNumber}}
+                   
+                    #membershipCodeNumberInput (input)="contract.member.membershipCodeNumber = membershipCodeNumberInput.value"
+                    placeholder="N° du adhesion">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° d'adhesion :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="" value="{{contract?.registrationNumber}}"
+                      #registrationNumberInput (input)="contract.registrationNumber = registrationNumberInput.value"
+                      placeholder="N° du adhesion">
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date D'inscription :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="" value={{contract?.member.subscriptionDate}}
+                    #subscriptionDateInput (input)="contract.member.subscriptionDate =subscriptionDateInput.value" placeholder="date d'inscription">
+                  </div>
+                </div>
+              
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date D'adhesion :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="" value={{contract?.member.membershipDate}}
+                    #membershipDateInput (input)="contract.member.membershipDate = membershipDateInput.value"
+                    placeholder="date d'adhesion">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Adhérent:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="" placeholder="Adhérent">
+
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situation: </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth   [selected]="contract?.contractSituation" (selectedChange)="contract.contractSituation = $event ">
+                      <nb-option value="IN_PROGRESS">En-cours</nb-option>
+                      <nb-option value="CANCELLED">Annuler</nb-option>
+                      <nb-option value="TERMINATED">Terminé</nb-option>
+                      <nb-option value="NOT_SIGNED">No-signal</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date de Situation:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="" value="{{contract?.contractSituationDate}}"
+                    #contractSituationDateInput (input)="contract.contractSituationDate =contractSituationDateInput .value"
+
+                      placeholder="date de situation">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Societe Mére:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="" value={{contract?.member.parentCompany}}
+                    #parentCompanyInput (input)="contract.member.parentCompany = parentCompanyInput.value"  placeholder="societe mére">
+                  </div>
+                </div> 
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Fin D'adhésion: </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status=""
+                    value={{contract?.member.membershipExpiryDate}}
+                    #membershipExpiryDateInput (input)="contract.member.membershipExpiryDate = membershipExpiryDateInput.value"
+                    placeholder="date fin d'adhésion">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <div class="col-3">
+
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Interlocuteur Privilagie :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth status="" value={{contract?.member.mainContact}}
+                    #mainContactInput (input)="contract.member.mainContact = mainContactInput.value"
+                    placeholder="interlocuteur privilagie">
+                  </div> 
+                   
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Motif : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth   [selected]="contract?.member.patterns" (selectedChange)="contract.member.patterns = $event ">
+                      <nb-option value="PATTERN_1">MODÈLE 1</nb-option>
+                      <nb-option value="PATTERN_2">MODÈLE 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <nb-checkbox status="warning" (change)="contract.member.isCouple = $event.target.checked"
+                  [(ngModel)]="contract?.member.isCouple">couple</nb-checkbox>&nbsp;&nbsp;
+                <nb-checkbox status="warning" (change)="contract.member.isVIP = $event.target.checked"
+                  [(ngModel)]="contract?.member.isVIP">VIP</nb-checkbox>
+           
+                 
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+         <nb-card>
+          <!-- <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données de Tarification</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+
+                <label style="font-size: 14px;" class="label col-sm-3col-form-label">code tarification:</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="" value="{{contract?.pricingData.pricingCode}}"
+                #pricingCodeInput (input)="contract.pricingData.pricingCode = pricingCodeInput.value"
+                placeholder="code tarification">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">
+
+                <label style="font-size: 14px;" class="label col-sm-3col-form-label">code prestation</label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="" value="{{contract?.pricingData.serviceCode}}"
+                #serviceCodeInput (input)="contract.pricingData.serviceCode = serviceCodeInput.value"
+                placeholder="code prestation">
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card> -->
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Commentaire & prestations</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <div class="col-3">
+                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Commentaire : </label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth status="" value="{{contract?.comment.comment}}"
+                #commentInput (input)="contract.comment.comment = commentInput.value"
+                 placeholder="Commentaire">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-3">
+
+                <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type: </label>
+              </div>
+              <div class="col-sm-9">
+                <nb-select [selected]="contract?.comment.type" (selectedChange)="contract.comment.type = $event " >
+                  <nb-option value="SUSPENSION_OF_PROCESSING_BENEFITS">Bloucage du la saisir des prestation</nb-option>
+                  <nb-option value="SUSPENSION_OF_BENEFITS_PAYMENT">Bloucage du paiement des prestation</nb-option>
+                </nb-select>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <div class="row" style="margin-left: 0.3%;">
+          <button nbButton hero status="info" style="font-size: 16px;" disabled nbStepperNext>Précédente</button>
+        <span style="width:25px;"></span>
+
+        <button nbButton nbStepperNext hero status="primary" style="font-size: 16px;"(click)="UpdateContract()">Suivant</button>
+        </div>
+        
+       </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Adhérent</ng-template>
+
+        <nb-card>
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données Professional</nb-card-header>
+          <nb-card-body>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Position : </label>
+                  </div>
+                  <div class="col-sm-9">
+                     
+                    <nb-select fullWidth  [selected]="contract?.professionalInfo.position" (selectedChange)="contract.professionalInfo.position = $event ">
+                      <nb-option value="IN_ACTIVITY">active</nb-option>
+                      <nb-option value="OFF_ACTIVITY">désactiver</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Salaire :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth value="{{contract?.professionalInfo.salary}}"  status=""
+                        #salaryInput (input)="contract.professionalInfo.salary = salaryInput.value" placeholder="Salaire">
+
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Classe : </label>
+                  </div>
+                  <div class="col-sm-9">
+                   
+                    <nb-select fullWidth  [selected]="contract?.professionalInfo.classe" (selectedChange)="contract.professionalInfo.classe = $event ">
+                      <nb-option value="CLASS_1">class_1</nb-option>
+                      <nb-option value="CLASS_2">class_2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Echelon : </label>
+                  </div>
+                  <div class="col-sm-9"> 
+                    <nb-select fullWidth [selected]="contract?.professionalInfo.echelon" (selectedChange)="contract.professionalInfo.echelon = $event ">
+                      <nb-option value="ECHELON_1">echlon_1</nb-option>
+                      <nb-option value="ECHELON_2">echlon_2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Fin Cotisation :</label>
+                  </div>
+                  <div class="col-sm-9"> 
+                    <input type="date" nbInput fullWidth value="{{contract?.professionalInfo.contributionEndDate}}" 
+                    #contributionEndDateInput (input)="contract.professionalInfo.contributionEndDate = contributionEndDateInput.value"
+                      status="" placeholder="Adhérent">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Situatuin D'adhesion : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth [selected]="contract?.professionalInfo.membershipStatus" (selectedChange)="contract.professionalInfo.membershipStatus = $event ">
+                      <nb-option value="INACTIVE">Désactiver</nb-option>
+                      <nb-option value="ACTIVE">Active</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Position :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth value="{{contract?.professionalInfo.positionDate}}"  
+                    #positionDateInput (input)="contract.professionalInfo.positionDate = positionDateInput.value" status=""
+                      placeholder="Date position">
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Collége : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth [selected]="contract?.professionalInfo.college" (selectedChange)="contract.professionalInfo.college = $event " >
+                      <nb-option value="COLLEGE_1">college 1</nb-option>
+                      <nb-option value="COLLEGE_2">college 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Catègorie : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth [selected]="contract?.professionalInfo.category" (selectedChange)="contract.professionalInfo.category = $event ">
+                      <nb-option value="CATEGORY_1">catégorie 1</nb-option>
+                      <nb-option value="CATEGORY_2">catégorie 2</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Debut Cotisation :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status=""
+                    #contributionStartDateInput (input)="contract.professionalInfo.contributionStartDate = contributionStartDateInput.value" value="{{contract?.professionalInfo.contributionStartDate}}" placeholder="Adhérent">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Type de Remboursement : </label>
+                  </div>
+                  <div class="col-sm-9"> 
+                    <nb-select fullWidth [selected]="contract?.professionalInfo.refundType" (selectedChange)="contract.professionalInfo.refundType = $event ">
+                      <nb-option value="REFUND_BY_BANK_WIRE">REMBOURSEMENT PAR VIREMENT BANCAIRE</nb-option>
+                      <nb-option value="OTHER_REFUND_TYPE">AUTRE REMBOURSEMENTTYPE</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <div class="row">
+        <button nbButton nbStepperPrevious  hero status="primary" style="font-size: 16px;">Précédente</button>
+        <span style="width:25px;"></span>
+        <button nbButton nbStepperNext  hero status="primary" style="font-size: 16px;" (click)="UpdateProfessionalInfo()">Suivant</button> 
+      </div>
+   </nb-step>
+        <nb-step [label]="labelThree">
+        <ng-template #labelThree>Securite Social</ng-template>
+        <nb-card>
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données Securite Social </nb-card-header>
+          <nb-card-body>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Matricule Cnrps :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth value="{{contract?.member.socialSecurityData.cnrpsRegistrationNumber}}"
+                    #cnrpsRegistrationNumberInput (input)="contract.member.socialSecurityData.cnrpsRegistrationNumber =cnrpsRegistrationNumberInput.value"
+                      status="" placeholder="Matricule Cnrps">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Matricule Cnam:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth value="{{contract?.member.socialSecurityData.cnamRegistrationNumber}}" 
+                    #cnamRegistrationNumberInput (input)="contract.member.socialSecurityData.cnamRegistrationNumber =cnamRegistrationNumberInput.value"
+                      status="" placeholder="Matricule Cnam">
+                  </div>
+                </div>
+                <nb-checkbox status="primary"                 (change)="contract.member.socialSecurityData.isAPCI = $event.target.checked"
+                [(ngModel)]="contract?.member.socialSecurityData.isAPCI">APCI</nb-checkbox>
+             
+
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Matricule Cnss:</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth  value="{{contract?.member.socialSecurityData.cnssRegistrationNumber}}"
+                    #cnssRegistrationNumberInput (input)="contract.member.socialSecurityData.cnssRegistrationNumber =cnssRegistrationNumberInput.value"
+
+                      status="" placeholder="matricule Cnss">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Filier : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth [selected]="contract?.member.socialSecurityData.sector" (selectedChange)="contract.member.socialSecurityData.sector = $event " >
+                      <nb-option value="SECTOR_1">SECTEUR_1</nb-option>
+                      <nb-option value="SECTOR_2">SECTEUR_2</nb-option>
+                      <nb-option value="SECTOR_3">SECTEUR_3</nb-option>
+                      <nb-option value="SECTOR_4">SECTEUR_4</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <nb-checkbox status="primary"  (change)="contract.member.socialSecurityData.isChronicDisease = $event.target.checked"
+                [(ngModel)]="contract?.member.socialSecurityData.isChronicDisease">Maladie Chronique</nb-checkbox>
+              
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >APCI</nb-card-header>
+          <nb-card-body>
+
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date APCI :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth  value="{{contract?.member.socialSecurityData.apci.dateAPCI}}" 
+                    #dateAPCIInput (input)="contract.member.socialSecurityData.apci.dateAPCI =dateAPCIInput.value"
+
+                      placeholder="Date APCI ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Debut :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="" value="{{contract?.member.socialSecurityData.apci.startDate}}" 
+                    #startDateInput (input)="contract.member.socialSecurityData.apci.startDate =startDateInput.value"
+
+                      placeholder="Date debut">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">APCI Type : </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <nb-select fullWidth [selected]="contract?.member.socialSecurityData.apci.apciEnumType" (selectedChange)="contract.member.socialSecurityData.apci.apciEnumType = $event " >
+                      <nb-option value="CASE_1">CAS_1</nb-option>
+                      <nb-option value="CASE_2">CAS_2</nb-option>
+                      <nb-option value="CASE_3">CAS_3</nb-option>
+                      <nb-option value="CASE_4">CAS_4</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Fin :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth value="{{contract?.member.socialSecurityData.apci.endDate}}" 
+                    #endDateInput (input)="contract.member.socialSecurityData.apci.endDate =endDateInput.value"
+                      placeholder="Date fin">
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-md-4">
+
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nom :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth value="{{contract?.member.socialSecurityData.apci.name}}" 
+                    #nameInput (input)="contract.member.socialSecurityData.apci.name =nameInput.value"
+                    status="" 
+                    placeholder="nom ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-3">
+                    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Date Expiration de Bons :</label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" nbInput fullWidth status="" value="{{contract?.member.socialSecurityData.apci.expiryDate}}" 
+                    #expiryDateInput (input)="contract.member.socialSecurityData.apci.expiryDate =expiryDateInput.value"
+
+                      placeholder="Date expiration de bons">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+
+<div class="row">
+        <button nbButton nbStepperPrevious  hero status="primary" style="font-size: 16px;" >précédente</button>
+        <span style="width:25px;"></span>
+
+        <button nbButton nbStepperNext  hero status="primary" style="font-size: 16px;" (click)="UpdateSocialSecurityData()">suivant</button>
+</div>
+      </nb-step>
+      <!-- <nb-step [label]="labelFour">
+        <ng-template #labelFour>Gestion beneficaire</ng-template>
+        <nb-card>
+          <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Gestion beneficaire</nb-card-header>
+          <nb-card-body>
+            <div class="row ">
+              <div class="col-10"></div>
+              <div class="col-2">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <nb-card>
+                  <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données personnel </nb-card-header>
+                  <nb-card-body>
+                    <div class="row">
+                      <div class="col-md-6">
+
+
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">N° du adhesion :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="text" nbInput fullWidth status=""
+                              value="{{Contract.beneficiaries[0].quality}}" [(ngModel)]="Beneficiary.numeroAdhesion" placeholder="N° du adhesion">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">date debut prestation
+                              :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="date" nbInput fullWidth status=""
+                            value="{{Contract.beneficiaries[0].dateDebutPrestation}}" [(ngModel)]="Beneficiary.dateDebutPrestation" placeholder="date debut prestation">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label"> Adhérent:</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="text" nbInput fullWidth status="" value="{{Contract.beneficiaries[0].nomAdherent}}" [(ngModel)]="Beneficiary.nomAdherent"
+                              placeholder="Adhérent">
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label"> plafond :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="text" nbInput fullWidth value="{{Contract.beneficiaries[0].plafond}}"[(ngModel)]="Beneficiary.plafond" status=""
+                              placeholder="plafond">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">situation d'adhesion
+                              :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="text" nbInput fullWidth value="{{Contract.beneficiaries[0].situationAdhesion}}" [(ngModel)]="Beneficiary.situationAdhesion"
+                              status="" placeholder="situation d'adhesion">
+                          </div>
+                        </div>
+
+
+
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label"> date debut pristation
+                              :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="date" nbInput fullWidth status=""
+                            value="{{Contract.beneficiaries[0].dateFinPrestation}}" [(ngModel)]="Beneficiary.dateFinPrestation" placeholder="date debut pristation">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">quality : </label>
+                          </div>
+                          <div class="col-sm-9">
+                            <nb-select fullWidth [(ngModel)]="Beneficiary.quality" selected="{{Contract.beneficiaries[0].quality}}">
+                              <nb-option value="FATHER">pére</nb-option>
+                              <nb-option value="MOTHER">mere</nb-option>
+                              <nb-option value="SPOUSE">conjoint</nb-option>
+                              <nb-option value="CHILD">enfants</nb-option>
+                            </nb-select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">nom & prenom :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="text" nbInput fullWidth value="{{Contract.beneficiaries[0].nomEtPrenom}}" [(ngModel)]="Beneficiary.nomEtPrenom" status=""
+                              placeholder="nom & prenom">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-3">
+                            <label style="font-size: 14px;" class="label col-sm-3col-form-label">date situation adhesion
+                              :</label>
+                          </div>
+                          <div class="col-sm-9">
+                            <input type="date" nbInput value="{{Contract.beneficiaries[0].dateAdhesion}}" [(ngModel)]="Beneficiary.dateAdhesion" fullWidth status=""
+                              placeholder="date situation adhesion">
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </nb-card-body>
+                </nb-card>
+                <nb-card>
+                  <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données profisionnel </nb-card-header>
+                  <nb-card-body>
+
+
+
+
+                    <div class="form-group row">
+                      <div class="col-3">
+
+                        <label style="font-size: 14px;" class="label col-sm-3col-form-label">date position:</label>
+                      </div>
+                      <div class="col-sm-9">
+                        <input type="date" nbInput fullWidth status="" value="{{Contract.beneficiaries[0].datePosition}}" [(ngModel)]="Beneficiary.datePosition"
+                          placeholder="date position">
+                      </div>
+                    </div>
+
+
+                  </nb-card-body>
+                </nb-card>
+                <nb-card>
+                  <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >Données securite social :</nb-card-header>
+                  <nb-card-body>
+
+                    <nb-checkbox status="" [(ngModel)]="SocialSecurityData.isAPCI">APCI </nb-checkbox>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+
+
+
+            </div>
+
+
+
+          </nb-card-body>
+        </nb-card>
+
+        <button nbButton nbStepperPrevious>précédente</button>
+        <button nbButton nbStepperNext (click)="UpdateBeneficiary()">suivant</button>
+      </nb-step>
+      <nb-step [label]="labelFive">
+        <ng-template #labelFive>pieces justificatives</ng-template>
+           <div class="form-group row">
+            <label style="font-size: 14px;" class="label col-sm-3col-form-label">file : </label>
+            <div class="col-md-6">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" (change)="onFileSelected($event)">
+            <label class="custom-file-label">file</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+  
+  
+          <div class="form-group row">
+            <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nature : </label>
+            <div class="col-md-6">
+              <nb-select fullWidth selected="1">
+                <nb-option value="1">Option 1</nb-option>
+                <nb-option value="2">Option 2</nb-option>
+              </nb-select>
+            </div>
+            <div class="col-md-6">
+            </div>
+          </div>
+  
+          <button nbButton nbStepperPrevious>précédente</button>
+          <button nbButton nbStepperNext>suivant</button>
+   
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card> -->
+
+<!-- <div ng>
+    <label style="font-size: 14px;" class="label col-sm-3col-form-label">Nature : </label>
+    <div class="col-md-6">
+      <nb-select fullWidth selected="PHYSICAL_PERSON" [(ngModel)]="personSave.personType">
+        <nb-option value="PHYSICAL_PERSON">personne physique</nb-option>
+        <nb-option value="MORAL_PERSON">personne moral</nb-option>
+        <nb-option value="LIBERAL_PERSON">personne liberal</nb-option>
+      </nb-select>
+    </div>
+    <input type="text" nbInput status="" [(ngModel)]="personSave.policyNumber" placeholder="policyNumber">
+    <input type="text" nbInput status="" [(ngModel)]="personSave.firstName" placeholder="firstName">
+    <input type="text" nbInput status="" [(ngModel)]="personSave.lastName" placeholder="lastName">
+    <input type="text" nbInput status="" [(ngModel)]="personSave.nationality" placeholder="nationality">
+    <input type="button" (click)="addPerson()" value="save">
+  </div>
+  <nb-card>
+    <nb-card-header class="text-white" style="background: rgb(86,13,110);
+                    background: linear-gradient(109deg, rgba(86,13,110,1) 34%, rgba(116,24,93,1) 78%, rgba(134,31,83,1) 100%);" >person data</nb-card-header>
+    <button nbButton>TestData</button>
+    <table class="table" width=100%>
+      <thead class="bg-light">
+        <tr>
+          <th width="">id</th>
+  
+          <th width="">firstName</th>
+          <th width="">lastName</th>
+          <th width="">personType</th>
+          <th width="">policyNumber</th>
+          <th width="">nationality</th>
+          <th width="">dateOfBirth</th>
+          <th width="">civilStatus</th>
+          <th width="">cityOfBirth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="person">
+          <td>{{person.id}}</td>
+          <td>{{person.firstName}}</td>
+          <td>{{person.lastName}}</td>
+          <td>{{person.personType}}</td>
+          <td>{{person.policyNumber}}</td>
+          <td>{{person.nationality}}</td>
+          <td>{{person.dateOfBirth}}</td>
+          <td>{{person.civilStatus}}</td>
+          <td>{{person.cityOfBirth}}</td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </nb-card> -->

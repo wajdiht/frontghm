@@ -21,6 +21,7 @@
 
   nb-user {
     cursor: pointer;
+    color: white !important;
   }
 
   ::ng-deep nb-search button {
@@ -31,6 +32,7 @@
     display: flex;
     align-items: center;
     width: auto;
+    color: white !important;
 
     .sidebar-toggle {
       @include nb-ltr(padding-right, 1.25rem);
@@ -59,6 +61,7 @@
     .user-action {
       border: none;
       padding: 0;
+      color:white;
     }
   }
 

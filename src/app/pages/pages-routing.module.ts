@@ -22,6 +22,12 @@ import { ListComponent } from './layout/list/list.component';
 import { StepperComponent } from './layout/stepper/stepper.component';
 import { TabsComponent } from './layout/tabs/tabs.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ECommerceChartsPanelComponent } from './e-commerce/charts-panel/charts-panel.component';
+import { DetailComponent } from './e-commerce/detail/detail.component';
+import { uptime } from 'process';
+import { UpdateComponent } from './e-commerce/update/update.component';
+import { PersonComponent } from './e-commerce/person/person.component';
+import { LoginComponent } from '../login/login.component';
 
 
 const routes: Routes = [ { 
@@ -29,16 +35,11 @@ const routes: Routes = [ {
   path: '',
   component: PagesComponent,
   children: [
-   
-    {
-      path: 'dashboard',
-      component: ECommerceComponent,
-    },
-
-      {
-        path: 'legend-chart',
-        component: ECommerceLegendChartComponent,
-      },
+      {path: 'dashboard',component: ECommerceComponent,},
+      {path: "person/:id", component: PersonComponent,},
+      {path: "detail/:id", component: DetailComponent,},
+      {path: "Update/:id", component: UpdateComponent,},
+      {path: 'legend-chart',component: ECommerceLegendChartComponent,},
       
       {
         path: 'earning-chart',

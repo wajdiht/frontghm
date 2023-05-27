@@ -2,7 +2,7 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Contrat adhèsion',
+    title: 'Contrat d`adhèsion',
     icon: 'book-open-outline',
     link: '/pages/dashboard',
     home: true,
@@ -26,20 +26,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'consulter les demande ',
-    icon: 'lock-outline',
+    title: 'Gestion des demande',
+    icon: 'archive-outline',
     
     children: [
       {
-        title: 'changement rib',
+        title: 'Demande rib',
         link: '/pages/layout/list',
       },
       {
-        title: 'changement adress',
+        title: 'Demande adress',
         link: '/pages/layout/stepper',
       },
       {
-        title: 'changement contact',
+        title: 'Demande contact',
         link: '/pages/layout/tabs',
       },
     ],
